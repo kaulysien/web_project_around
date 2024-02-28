@@ -79,7 +79,7 @@ const cardTitles = document.querySelectorAll(".elements__card-name");
 
 initialCards.forEach((card, index) => {
   cardImgs[index].setAttribute("src", card.link);
-  cardImgs[index].setAttribute("alt", `Imagem do ${card.name}`);
+  cardImgs[index].setAttribute("alt", 'Imagem do ${card.name}');
   cardTitles[index].innerText = card.name;
 });
 
@@ -191,7 +191,7 @@ addCardForm.addEventListener("submit", (e) => {
   const newCard = cards[0].cloneNode(true);
 
   newCard.childNodes[2].nextSibling.src = inputImage.value;
-  newCard.childNodes[2].nextSibling.alt = `Imagem do ${inputTitle.value}`;
+  newCard.childNodes[2].nextSibling.alt = 'Imagem do ${inputTitle.value}';
   newCard.childNodes[5].children[0].innerText = inputTitle.value;
 
   document.querySelector(".elements").prepend(newCard);
