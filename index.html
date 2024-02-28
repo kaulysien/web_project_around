@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Web Project Around</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img
+          class="header__logo"
+          src="./images/logo-around-the-us.svg"
+          alt="Logo Around the U.S"
+        >
+      </header>
+      <main>
+        <section class="profile">
+          <img
+            class="profile__image"
+            src="./images/profile-pic.jpg"
+            alt="Imagem de homem idoso com gorro vermelho e camisa de botão"
+          >
+          <div class="profile__wrapper-texts">
+            <div class="profile__wrapper-name-and-edit-button">
+              <h1 class="profile__name">Jacques Cousteau</h1>
+              <button class="profile__edit-button">
+                <img
+                  class="profile__edit-icon"
+                  src="./images/edit-icon.svg"
+                  alt="Icone de edição"
+                >
+              </button>
+            </div>
+            <p class="profile__role">Explorador</p>
+          </div>
+          <button class="profile__add-card-button">
+            <img
+              class="profile__add-card-icon"
+              src="./images/add-card-icon.svg"
+              alt="Add card button"
+            >
+          </button>
+        </section>
+        <div class="elements">
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/trash.png"
+                alt="delete button icon"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/like-button.png"
+                  alt="like button icon"
+                >
+              </button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/trash.png"
+                alt="delete button icon"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/like-button.png"
+                  alt="like button icon"
+                >
+              </button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/trash.png"
+                alt="delete button icon"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/like-button.png"
+                  alt="like button icon"
+                >
+              </button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/trash.png"
+                alt="delete button icon"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/like-button.png"
+                  alt="like button icon"
+                >
+              </button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/trash.png"
+                alt="delete button icon"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/like-button.png"
+                  alt="like button icon"
+                >
+              </button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/trash.png"
+                alt="delete button icon"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/like-button.png"
+                  alt="like button icon"
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">© Kauane Ferreira 2024 Around The U.S.</p>
+      </footer>
+      <div class="popup">
+        <div class="popup__container">
+          <img
+            class="popup__close-button"
+            src="./images/close-icon.png"
+            alt="Botão de fechar o popup"
+          >
+          <h2 class="popup__title">Editar perfil</h2>
+          <form class="popup__form">
+            <input
+              id="input-name"
+              class="popup__input"
+              type="text"
+              placeholder="Nome"
+            >
+            <input
+              id="input-role"
+              class="popup__input"
+              type="text"
+              placeholder="sobre-mim"
+            >
+            <button class="popup__save-button" type="submit">Salvar</button>
+          </form>
+        </div>
+      </div>
+      <div class="popup popup-add-card">
+        <div class="popup__container">
+          <img
+            class="popup__close-button popup-add-card__close-button"
+            src="./images/close-icon.png"
+            alt="Botão de fechar o popup"
+          >
+          <h2 class="popup__title">Novo local</h2>
+          <form class="popup__form">
+            <input
+              id="input-location-name"
+              class="popup__input"
+              type="text"
+              placeholder="Titulo"
+            >
+            <input
+              id="input-image"
+              class="popup__input"
+              type="text"
+              placeholder="Link da imagem"
+            >
+            <button
+              class="popup__save-button popup-add-card__create-button"
+              type="submit"
+            >
+              Criar
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="popup popup-view-image">
+        <div class="popup__container popup-view-image__image-container">
+          <img
+            class="popup__close-button popup-view-image__close-button"
+            src="./images/close-icon.png"
+            alt="Botão de fechar o popup"
+          >
+          <div class="popup-view-image__image-container">
+            <img class="popup-view-image__render-image" src="#" alt="#" >
+            <span class="popup-view-image__image-title"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
