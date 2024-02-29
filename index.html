@@ -1,195 +1,243 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Around the US</title>
-    <meta
-      name="description"
-      content="Kauane Ferreira's Project for Portfolio TripleTen"
-    />
-    <meta name="keywords" content="html, css, javascript, react" />
-    <meta name="author" content="Kauane Ferreira" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Web Project Around</title>
   </head>
-  <body class="root">
-    <header class="header">
-      <a href="#"
-        ><img class="header__logo" src="./images/logo.svg" alt="logo"
-      /></a>
-    </header>
-    <main class="content">
-      <section class="profile">
-        <div class="profile__container">
-          <div class="profile__image-container">
-            <div class="profile__image-edit"></div>
-            <img class="profile__image" src="#" alt="profile-picture" />
-          </div>
-          <div class="profile__info">
-            <div class="profile__text">
-              <h1 class="profile__title">Jacques Cousteau</h1>
-              <p class="profile__subtitle">Explorer</p>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img
+          class="header__logo"
+          src="./images/logo.svg"
+          alt="Logotipo ao redor dos EUA"
+        >
+      </header>
+      <main>
+        <section class="profile">
+          <img
+            class="profile__image"
+            src="./images/perfil.jpg"
+            alt="Imagem de homem idoso com gorro vermelho e camisa de botão"
+          >
+          <div class="profile__wrapper-texts">
+            <div class="profile__wrapper-name-and-edit-button">
+              <h1 class="profile__name">Jacques Cousteau</h1>
+              <button class="profile__edit-button">
+                <img
+                  class="profile__edit-icon"
+                  src="./images/editar.svg"
+                  alt="Icone de edição"
+                >
+              </button>
             </div>
-            <button class="button profile__edit-button" aria-label="Edit button"></button>
+            <p class="profile__role">Explorador</p>
+          </div>
+          <button class="profile__add-card-button">
+            <img
+              class="profile__add-card-icon"
+              src="./images/adicionar.svg"
+              alt="Botão Adicionar Cartão"
+            >
+          </button>
+        </section>
+        <div class="elements">
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/lixo.png"
+                alt="Ícone do Botão Excluir"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/gostar.png"
+                  alt="Ícone do Botão Curtir"
+                >
+              </button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/lixo.png"
+                alt="Ícone do Botão Excluir"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/gostar.png"
+                  alt="Ícone do Botão Curtir"
+                >
+              </button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/lixo.png"
+                alt="Ícone do Botão Excluir"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/gostar.png"
+                  alt="Ícone do Botão Curtir"
+                >
+              </button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/lixo.png"
+                alt="Ícone do Botão Excluir"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/gostar.png"
+                  alt="Ícone do Botão Curtir"
+                >
+              </button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/lixo.png"
+                alt="Ícone do Botão Excluir"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/gostar.png"
+                  alt="Ícone do Botão Curtir"
+                >
+              </button>
+            </div>
+          </div>
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/lixo.png"
+                alt="Ícone do Botão Excluir"
+              >
+            </button>
+            <img class="elements__card-image" src="#" alt="" >
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name">Vale de Yosemite</p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/gostar.png"
+                  alt="Ícone do Botão Curtir"
+                >
+              </button>
+            </div>
           </div>
         </div>
-        <button class="button profile__add-button" aria-label="Add button"></button>
-      </section>
-      <section class="cards">
-        <ul class="cards__grid">
-          <!-- Template cards -->
-        </ul>
-      </section>
-    </main>
-    <footer class="footer">
-      <p class="footer__copyright">© 2024 Around The U.S.</p>
-    </footer>
-
-    <!-- Edit profile -->
-    <section class="form form__edit-profile">
-      <form
-        class="form__container"
-        name="form__edit-profile"
-        action="#"
-        novalidate
-      >
-        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
-        <h2 class="form__header">Edit profile</h2>
-        <fieldset class="form__fields">
-          <label for="name-input">
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">© Kauane Ferreira 2024 </p>
+      </footer>
+      <div class="popup">
+        <div class="popup__container">
+          <img
+            class="popup__close-button"
+            src="./images/fechar.png"
+            alt="Botão de fechar o popup"
+          >
+          <h2 class="popup__title">Editar perfil</h2>
+          <form class="popup__form">
             <input
+              id="input-name"
+              class="popup__input"
               type="text"
-              class="form__input form__title"
-              id="name-input"
-              name="name"
-              placeholder="Name"
-              value="Jacques Cousteau"
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <span class="form__input-error" id="name-input-error"></span>
-          </label>
-          <label for="job-input">
+              placeholder="Nome"
+            >
             <input
+              id="input-role"
+              class="popup__input"
               type="text"
-              class="form__input form__subtitle"
-              id="job-input"
-              name="job"
-              placeholder="Job"
-              value="Explorer"
-              minlength="2"
-              maxlength="200"
-              required
-            />
-            <span class="form__input-error" id="job-input-error"></span>
-          </label>
-          <button class="form__submit-button" type="submit" value="Save" aria-label="Save button">
-            Save
-          </button>
-        </fieldset>
-      </form>
-    </section>
-
-    <!-- Add new place -->
-    <section class="form form__add-card">
-      <form class="form__container" name="form__add-card" action="#" novalidate>
-        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
-        <h2 class="form__header">New Place</h2>
-        <fieldset class="form__fields">
-          <label for="card-input">
+              placeholder="sobre-mim"
+            >
+            <button class="popup__save-button" type="submit">Salvar</button>
+          </form>
+        </div>
+      </div>
+      <div class="popup popup-add-card">
+        <div class="popup__container">
+          <img
+            class="popup__close-button popup-add-card__close-button"
+            src="./images/fechar.png"
+            alt="Botão de fechar"
+          >
+          <h2 class="popup__title">Novo local</h2>
+          <form class="popup__form">
             <input
+              id="input-location-name"
+              class="popup__input"
               type="text"
-              class="form__input form__card-title"
-              id="card-input"
-              name="title"
-              placeholder="Title"
-              value=""
-              minlength="1"
-              maxlength="30"
-              required
-            />
-            <span class="form__input-error" id="card-input-error"></span>
-          </label>
-          <label for="link-input">
+              placeholder="Titulo"
+            >
             <input
-              type="url"
-              class="form__input form__image-link"
-              id="link-input"
-              name="link"
-              placeholder="Image link"
-              value=""
-              required
-            />
-            <span class="form__input-error" id="link-input-error"></span>
-          </label>
-          <button class="form__submit-button" type="submit" value="Create" aria-label="Create button">
-            Create
-          </button>
-        </fieldset>
-      </form>
-    </section>
-
-    <!-- Open image -->
-    <div class="form form__add-image">
-      <div class="form__open-image">
-        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
-        <img src="#" alt="" class="form__image" />
-        <p class="form__image-title"></p>
+              id="input-image"
+              class="popup__input"
+              type="text"
+              placeholder="Link da imagem"
+            >
+            <button
+              class="popup__save-button popup-add-card__create-button"
+              type="submit"
+            >
+              Criar
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="popup popup-view-image">
+        <div class="popup__container popup-view-image__image-container">
+          <img
+            class="popup__close-button popup-view-image__close-button"
+            src="./images/fechar.png"
+            alt="Botão de fechar"
+          >
+          <div class="popup-view-image__image-container">
+            <img class="popup-view-image__render-image" src="#" alt="#" >
+            <span class="popup-view-image__image-title"></span>
+          </div>
+        </div>
       </div>
     </div>
-
-     <!-- Delete card -->
-  <div class="form form--delete-image">
-    <form class="form__container" name="delete-image" novalidate>
-      <button class="form__reset-button" type="reset" aria-label="Close button"></button>
-      <h2 class="form__header">Are you sure?</h2>
-      <fieldset class="form__fields form__fields-delete">
-        <button class="form__submit-button" type="submit" value="Yes" aria-label="Yes button">Yes</button>
-      </fieldset>
-    </form>
-  </div>
-  
-  <!-- Change profile picture -->
-  <div class="form form--change-image">
-    <form class="form__container" name="change-image" novalidate>
-      <button class="form__reset-button" type="reset" aria-label="Close button"></button>
-      <h2 class="form__header">Change profile picture</h2>
-      <fieldset class="form__fields">
-
-        <label for="linkImage-input">
-            <input
-              type="url"
-              class="form__input form__image-link"
-              id="linkImage-input"
-              name="imageLink"
-              placeholder="Image link"
-              value=""
-              required
-            />
-            <span class="form__input-error" id="linkImage-input-error"></span>
-          </label>
-        <button class="form__submit-button" type="submit" value="Save" aria-label="Save button">
-            Save
-          </button>
-      </fieldset>
-    </form>
-  </div>
-
-    <!-- Template cards -->
-    <template class="card-template">
-      <li class="card">
-        <div class="card__container">
-          <button type="button" class="card__delete-button" aria-label="Delete button"></button>
-          <div class="card__image"></div>
-          <div class="card__text">
-            <h2 class="card__title"></h2>
-            <div class="card__like-container">
-              <button type="button" class="card__like-button" aria-label="Like button"></button>
-            <p class="card__like-counter"></p>
-            </div>
-          </div>
-        </div>
-      </li>
-    </template>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
