@@ -1,243 +1,102 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
+<html lang="pt-br">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
-    <title>Web Project Around</title>
-  </head>
-  <body>
+    <meta name="author" content="Kauane Ferreira">
+    <link rel="stylesheet" href="pages/index.css">
+    <title>Ao redor dos EUA</title>
+</head>
+<body>
     <div class="page">
-      <header class="header">
-        <img
-          class="header__logo"
-          src="./images/logo.svg"
-          alt="Logotipo ao redor dos EUA"
-        >
-      </header>
-      <main>
-        <section class="profile">
-          <img
-            class="profile__image"
-            src="./images/perfil.jpg"
-            alt="Imagem de homem idoso com gorro vermelho e camisa de botão"
-          >
-          <div class="profile__wrapper-texts">
-            <div class="profile__wrapper-name-and-edit-button">
-              <h1 class="profile__name">Jacques Cousteau</h1>
-              <button class="profile__edit-button">
-                <img
-                  class="profile__edit-icon"
-                  src="./images/editar.svg"
-                  alt="Icone de edição"
-                >
-              </button>
+        <header class="header">
+            <div class="header__logo">
+                <img src="./images/logo.svg" alt="Logo Around US" class="header__logo-image">
             </div>
-            <p class="profile__role">Explorador</p>
-          </div>
-          <button class="profile__add-card-button">
-            <img
-              class="profile__add-card-icon"
-              src="./images/adicionar.svg"
-              alt="Botão Adicionar Cartão"
-            >
-          </button>
-        </section>
-        <div class="elements">
-          <div class="elements__card">
-            <button type="button" class="elements__delete-button">
-              <img
-                class="elements__delete-icon"
-                src="./images/lixo.png"
-                alt="Ícone do Botão Excluir"
-              >
-            </button>
-            <img class="elements__card-image" src="#" alt="" >
-            <div class="elements__wrapper-text-and-like-button">
-              <p class="elements__card-name">Vale de Yosemite</p>
-              <button type="button" class="elements__like-button">
-                <img
-                  class="elements__like-icon"
-                  src="./images/gostar.png"
-                  alt="Ícone do Botão Curtir"
-                >
-              </button>
+        </header>
+        <main class="main">
+          <section class="profile">
+            <img src="./images/image.jpg" alt="Foto Profile" class="profile__image">
+              <div class="profile__info">
+                <h4 class="profile__info-name">Jacques Cousteau</h4>
+                <button class="profile__info-button">
+                  <img src="/images/vector.svg" alt="Button Image" class="profile__info-button-image">
+                </button>
+                <p class="profile__info-text">Explorador</p>
+
+                <div class="container">
+                  <button class="container__close"><img src="/images/close.svg" alt="" class=""></button>
+                  <div class="popup">
+                  <div class="popup__container">
+                    <h2 class="form__title">Editar Perfil</h2>
+                    <form class="form__fieldset">
+                      <input type="text" class="form__name-input" placeholder="Nome" required>
+                      <input type="text" class="form__about-input" placeholder="Sobre mim" required>
+                      <input type="submit" value="Salvar" class="form__submit">
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="elements__card">
-            <button type="button" class="elements__delete-button">
-              <img
-                class="elements__delete-icon"
-                src="./images/lixo.png"
-                alt="Ícone do Botão Excluir"
-              >
+            <button class="profile__button">
+              <img src="/images/vectoradd.svg" alt="Button Add Image" class="profile__button-add">
             </button>
-            <img class="elements__card-image" src="#" alt="" >
-            <div class="elements__wrapper-text-and-like-button">
-              <p class="elements__card-name">Vale de Yosemite</p>
-              <button type="button" class="elements__like-button">
-                <img
-                  class="elements__like-icon"
-                  src="./images/gostar.png"
-                  alt="Ícone do Botão Curtir"
-                >
-              </button>
-            </div>
-          </div>
-          <div class="elements__card">
-            <button type="button" class="elements__delete-button">
-              <img
-                class="elements__delete-icon"
-                src="./images/lixo.png"
-                alt="Ícone do Botão Excluir"
-              >
-            </button>
-            <img class="elements__card-image" src="#" alt="" >
-            <div class="elements__wrapper-text-and-like-button">
-              <p class="elements__card-name">Vale de Yosemite</p>
-              <button type="button" class="elements__like-button">
-                <img
-                  class="elements__like-icon"
-                  src="./images/gostar.png"
-                  alt="Ícone do Botão Curtir"
-                >
-              </button>
-            </div>
-          </div>
-          <div class="elements__card">
-            <button type="button" class="elements__delete-button">
-              <img
-                class="elements__delete-icon"
-                src="./images/lixo.png"
-                alt="Ícone do Botão Excluir"
-              >
-            </button>
-            <img class="elements__card-image" src="#" alt="" >
-            <div class="elements__wrapper-text-and-like-button">
-              <p class="elements__card-name">Vale de Yosemite</p>
-              <button type="button" class="elements__like-button">
-                <img
-                  class="elements__like-icon"
-                  src="./images/gostar.png"
-                  alt="Ícone do Botão Curtir"
-                >
-              </button>
-            </div>
-          </div>
-          <div class="elements__card">
-            <button type="button" class="elements__delete-button">
-              <img
-                class="elements__delete-icon"
-                src="./images/lixo.png"
-                alt="Ícone do Botão Excluir"
-              >
-            </button>
-            <img class="elements__card-image" src="#" alt="" >
-            <div class="elements__wrapper-text-and-like-button">
-              <p class="elements__card-name">Vale de Yosemite</p>
-              <button type="button" class="elements__like-button">
-                <img
-                  class="elements__like-icon"
-                  src="./images/gostar.png"
-                  alt="Ícone do Botão Curtir"
-                >
-              </button>
-            </div>
-          </div>
-          <div class="elements__card">
-            <button type="button" class="elements__delete-button">
-              <img
-                class="elements__delete-icon"
-                src="./images/lixo.png"
-                alt="Ícone do Botão Excluir"
-              >
-            </button>
-            <img class="elements__card-image" src="#" alt="" >
-            <div class="elements__wrapper-text-and-like-button">
-              <p class="elements__card-name">Vale de Yosemite</p>
-              <button type="button" class="elements__like-button">
-                <img
-                  class="elements__like-icon"
-                  src="./images/gostar.png"
-                  alt="Ícone do Botão Curtir"
-                >
-              </button>
-            </div>
-          </div>
-        </div>
-      </main>
-      <footer class="footer">
-        <p class="footer__copyright">© Kauane Ferreira 2024 </p>
-      </footer>
-      <div class="popup">
-        <div class="popup__container">
-          <img
-            class="popup__close-button"
-            src="./images/fechar.png"
-            alt="Botão de fechar o popup"
-          >
-          <h2 class="popup__title">Editar perfil</h2>
-          <form class="popup__form">
-            <input
-              id="input-name"
-              class="popup__input"
-              type="text"
-              placeholder="Nome"
-            >
-            <input
-              id="input-role"
-              class="popup__input"
-              type="text"
-              placeholder="sobre-mim"
-            >
-            <button class="popup__save-button" type="submit">Salvar</button>
-          </form>
-        </div>
-      </div>
-      <div class="popup popup-add-card">
-        <div class="popup__container">
-          <img
-            class="popup__close-button popup-add-card__close-button"
-            src="./images/fechar.png"
-            alt="Botão de fechar"
-          >
-          <h2 class="popup__title">Novo local</h2>
-          <form class="popup__form">
-            <input
-              id="input-location-name"
-              class="popup__input"
-              type="text"
-              placeholder="Titulo"
-            >
-            <input
-              id="input-image"
-              class="popup__input"
-              type="text"
-              placeholder="Link da imagem"
-            >
-            <button
-              class="popup__save-button popup-add-card__create-button"
-              type="submit"
-            >
-              Criar
-            </button>
-          </form>
-        </div>
-      </div>
-      <div class="popup popup-view-image">
-        <div class="popup__container popup-view-image__image-container">
-          <img
-            class="popup__close-button popup-view-image__close-button"
-            src="./images/fechar.png"
-            alt="Botão de fechar"
-          >
-          <div class="popup-view-image__image-container">
-            <img class="popup-view-image__render-image" src="#" alt="#" >
-            <span class="popup-view-image__image-title"></span>
-          </div>
-        </div>
-      </div>
+          </section>
+          <section class="cards">
+            <ul class="card__box">
+              <li class="card__content">
+                <img src="/images/yosemite.jpg" alt="Imagem do Vale de Yosemite" class="card__image">
+                <div class="card__bar">
+                <h4 class="card__text">Vale de Yosemite</h4>
+                <button class="card__button">
+                </button>
+                </div>
+              </li>
+              <li class="card__content">
+                <img src="/images/lagolouise.png" alt="Imagem do Lago Louise" class="card__image">
+                <div class="card__bar">
+                <h4 class="card__text">Lago Louise</h4>
+                <button class="card__button">
+                </button>
+                </div>
+              </li>
+              <li class="card__content">
+                <img src="/images/montanhas.png" alt="Imagem das Monhanhas" class="card__image">
+                <div class="card__bar">
+                <h4 class="card__text">Montanhas Care...</h4>
+                <button class="card__button">
+                </button>
+                </div>
+              </li>
+              <li class="card__content">
+                <img src="/images/latemar.png" alt="Imagem de Latemar" class="card__image">
+                <div class="card__bar">
+                <h4 class="card__text">Latemar</h4>
+                <button class="card__button">
+                </button>
+                </div>
+              </li>
+              <li class="card__content">
+                <img src="/images/parque.png" alt="Imagem do Parque Nacional" class="card__image">
+                <div class="card__bar">
+                <h4 class="card__text">Parque Nacional...</h4>
+                <button class="card__button">
+                </button>
+                </div>
+              </li>
+              <li class="card__content">
+                <img src="/images/lagodibraies.png" alt="Imagem do Lago di Braies" class="card__image">
+                <div class="card__bar">
+                <h4 class="card__text">Lago di Braies</h4>
+                <button class="card__button">
+                </button>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </main>
+        <footer class="footer">&copy; 2024 Around The U.S.</footer>
     </div>
-    <script src="./scripts/index.js"></script>
-  </body>
+    <script src="/script/index.js"></script>
+</body>
 </html>

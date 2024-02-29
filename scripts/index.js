@@ -4,22 +4,22 @@ const handleLikeButtons = () => {
 
   likeButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
-      if (button.getAttribute("src") === "./images/gostar.png") {
+      if (button.getAttribute("src") === "./images/like-button.png") {
         return button.setAttribute("src", "./images/like-button-clicked.png");
       }
 
-      return button.setAttribute("src", "./images/gostar.png");
+      return button.setAttribute("src", "./images/like-button.png");
     });
   });
 };
 
 const handleNewLikeButton = (button) => {
   button.addEventListener("click", (e) => {
-    if (button.getAttribute("src") === "./images/gostar.png") {
+    if (button.getAttribute("src") === "./images/like-button.png") {
       return button.setAttribute("src", "./images/like-button-clicked.png");
     }
 
-    return button.setAttribute("src", "./images/gostar.png");
+    return button.setAttribute("src", "./images/like-button.png");
   });
 };
 
@@ -79,7 +79,7 @@ const cardTitles = document.querySelectorAll(".elements__card-name");
 
 initialCards.forEach((card, index) => {
   cardImgs[index].setAttribute("src", card.link);
-  cardImgs[index].setAttribute("alt", 'Imagem do ${card.name}');
+  cardImgs[index].setAttribute("alt", `Imagem do ${card.name}`);
   cardTitles[index].innerText = card.name;
 });
 
@@ -191,7 +191,7 @@ addCardForm.addEventListener("submit", (e) => {
   const newCard = cards[0].cloneNode(true);
 
   newCard.childNodes[2].nextSibling.src = inputImage.value;
-  newCard.childNodes[2].nextSibling.alt = 'Imagem do ${inputTitle.value}';
+  newCard.childNodes[2].nextSibling.alt = `Imagem do ${inputTitle.value}`;
   newCard.childNodes[5].children[0].innerText = inputTitle.value;
 
   document.querySelector(".elements").prepend(newCard);
