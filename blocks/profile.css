@@ -1,129 +1,71 @@
+.main {
+  padding: 40px 200px 0 200px;
+}
+
 .profile {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  margin: 0 auto 50px;
   max-width: 880px;
-  color: #ffffff;
+  max-height: 120px;
+  display: flex;
 }
 
 .profile__image {
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 100px;
 }
 
-.profile__wrapper-texts {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
+.profile__info {
+  max-width: 415px;
+  max-height: 77px;
+  padding: 22px 190px 22px 30px;
+  display: grid;
+  grid-template-columns: 373px 24px;
 }
 
-.profile__wrapper-name-and-edit-button {
-  display: flex;
-  gap: 18px;
-  justify-content: center;
-  align-items: center;
-  min-width: 289px;
-  max-width: 390px;
+.profile__info-name {
+  color: #fff;
+  font-size: 38px;
+  margin: 0;
+  max-width: 373px;
+  font-family: "Inter";
 }
 
-.profile__name {
-  margin: 0 0 16px;
-  font-size: 42px;
-  line-height: 48px;
-  font-weight: 500;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+.profile__info-text {
+  color: #fff;
+  font-size: 18px;
+  margin: 0;
+  font-family: "Inter";
+  padding: 16px 0 0 0;
 }
 
-.profile__edit-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
+.profile__info-button {
   width: 24px;
   height: 24px;
-  background-color: transparent;
-  border: 1px solid #ffffff;
+  background-color: black;
+  border: 1px solid #fff;
+  margin: 12px 0 0 0;
   cursor: pointer;
 }
 
-.profile__edit-icon {
-  width: 10px;
-  height: 10px;
+.profile__info-button:hover {
+  opacity: 60%;
+  transition: 0.4s;
 }
 
-.profile__role {
-  margin: 0;
-  font-size: 18px;
-  line-height: 21.78px;
-  min-width: 87.69px;
-  max-width: 67.7px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.profile__add-card-button {
-  width: 100%;
+.profile__button {
+  width: 150px;
   height: 50px;
-  max-width: 150px;
-  background-color: transparent;
-  border: 1px solid #ffffff;
+  background-color: black;
+  border: 2px solid #fff;
+  margin-top: 30px;
+  margin-right: 0;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 880px) {
-  .profile {
-    flex-direction: column;
-  }
-
-  .profile__wrapper-texts {
-    align-items: center;
-  }
-
-  .profile__add-card-button {
-    max-width: unset;
-  }
+.profile__button:hover {
+  opacity: 60%;
+  transition: 0.4s;
 }
 
-@media screen and (max-width: 720px) {
-  .profile {
-    padding: 42px 19px 36px;
-    margin: 0 auto;
-  }
-
-  .profile__wrapper-name-and-edit-button {
-    gap: 10px;
-  }
-
-  .profile__add-card-icon {
-    width: 16px;
-    height: 16px;
-  }
-
-  .profile__name {
-    margin: 0 0 14px;
-    font-size: 22px;
-    line-height: 26.63px;
-  }
-
-  .profile__edit-button {
-    margin-bottom: 20px;
-    width: 18px;
-    height: 18px;
-  }
-
-  .profile__edit-icon {
-    width: 7.5px;
-    height: 7.5px;
-  }
-
-  .profile__role {
-    margin-bottom: 36px;
-    font-size: 14px;
-    line-height: 16.94px;
-  }
+.profile__button-add {
 }

@@ -1,101 +1,58 @@
-.popup {
-  position: absolute;
-  inset: 0;
-  display: none;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+.container {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 160px;
+  left: 425px;
+  /*display: none;*/
 }
 
-.popup_opened {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+.container__close {
+  background: transparent;
+  border: none;
+  left: 430px;
 }
 
 .popup__container {
-  position: relative;
-  top: 195px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background-color: #ffffff;
+  width: 430px;
+  height: 330px;
+  background-color: #fff;
+  border: 1px solid #000;
   border-radius: 10px;
-  padding: 34px 36px 36.51px;
-  width: 100%;
-  height: 100%;
-  max-width: 430px;
-  max-height: 330px;
-  box-sizing: border-box;
 }
 
-.popup__close-button {
-  position: absolute;
-  top: -45px;
-  right: -45px;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-}
-
-.popup__title {
-  margin: 0 0 54px;
+.form__title {
+  font-family: "Inter Black";
   font-size: 24px;
-  line-height: 29.05px;
-  font-weight: 900;
-  color: #000000;
+  padding: 34px 64px 0 36px;
+  margin: 0;
 }
 
-.popup__form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.popup__input {
-  width: 100%;
-  height: 100%;
-  max-height: 27.26px;
+.form__name-input {
+  margin: 56px 36px 0 36px;
+  width: 358px;
   border: none;
   border-bottom: 1px solid #000;
 }
 
-.popup__input:nth-child(2) {
-  margin: 29.74px 0 48px;
-}
-
-.popup__save-button {
-  width: 100%;
-  height: 100%;
-  max-height: 50.15px;
-  background-color: #000;
-  border-radius: 2px;
-  color: #ffffff;
-  font-size: 18px;
-  line-height: 21.78px;
+.form__about-input {
+  margin: 30px 36px 0 36px;
+  width: 358px;
   border: none;
-  outline: none;
+  border-bottom: 1px solid #000;
 }
 
-.popup__save-button:hover {
-  opacity: 0.8;
+.form__submit {
+  width: 358px;
+  height: 46px;
+  background-color: #000;
+  color: #fff;
+  margin: 48px 36px 37px 36px;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 720px) {
-  .popup__close-button {
-    top: -40px;
-    right: 5px;
-    width: 22px;
-    height: 22px;
-  }
-
-  .popup__container {
-    top: 123px;
-    max-width: 282px;
-    max-height: 322px;
-  }
+.form__submit:hover {
+  opacity: 80%;
+  transition: 0.4s;
+  cursor: pointer;
 }

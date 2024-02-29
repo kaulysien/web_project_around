@@ -1,18 +1,23 @@
+@font-face {
+  font-family: "Inter",Arial, Helvetica, sans-serif;
+  src: url(/fonts/InterDisplay-Regular.woff2);
+}
+
+@font-face {
+  font-family: "Inter Black", Arial, Helvetica, sans-serif;
+  src: url(/fonts/InterDisplay-Black.woff2);
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
 .page {
-  padding: 45px 0 60px;
-  font-family: "Inter", Arial, sans-serif;
-  background-color: #000000;
-  position: relative;
-}
-
-@media screen and (max-width: 1120px) {
-  .page {
-    padding: 45px 80px 60px;
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .page {
-    padding: unset;
-  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1280px;
+  margin: 0 auto 0;
 }
