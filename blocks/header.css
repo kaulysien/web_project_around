@@ -1,14 +1,27 @@
 .header {
-  max-width: 880px;
-  padding: 45px 200px 0 200px;
+  margin-top: 45px;
+  border-bottom: solid 1px rgba(84, 84, 84, 0.7);
 }
 
 .header__logo {
-  border-bottom: 1px solid gray;
+  margin-bottom: 41px;
+  width: 173px;
+  height: 33px;
 }
 
-.header__logo-image {
-  display: flex;
-  justify-content: flex-start;
-  padding-bottom: 41px;
+@media screen and (max-width: 620px) {
+  .header {
+    margin-top: 0;
+  }
+
+  .header__logo {
+    margin: 28px 0 32px 27px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header__logo {
+    width: 126px;
+    height: 24px;
+  }
 }

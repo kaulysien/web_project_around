@@ -1,99 +1,152 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Kauane Ferreira">
-    <link rel="stylesheet" href="pages/index.css">
-    <title>Ao redor dos EUA</title>
-</head>
-<body>
-    <div class="page">
-        <header class="header">
-            <div class="header__logo">
-                <img src="./images/logo.svg" alt="Logo Around US" class="header__logo-image">
-            </div>
-        </header>
-        <main class="main">
-            <section class="profile">
-                <img src="./images/image.jpg" alt="Foto Profile" class="profile__image">
-                <div class="profile__info">
-                    <h4 class="profile__info-name">Jacques Cousteau</h4>
-                    <button class="profile__info-button">
-                        <img src="/images/vector.svg" alt="Button Image" class="profile__info-button-image">
-                    </button>
-                    <p class="profile__info-text">Explorador</p>
-
-                    <div class="container">
-                        <button class="container__close">
-                            <img src="/images/close.svg" alt="" class="">
-                        </button>
-                        <div class="popup">
-                            <div class="popup__container">
-                                <h2 class="form__title">Editar Perfil</h2>
-                                <form class="form__fieldset">
-                                    <input type="text" class="form__name-input" placeholder="Nome" required>
-                                    <input type="text" class="form__about-input" placeholder="Sobre mim" required>
-                                    <input type="submit" value="Salvar" class="form__submit">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="profile__button">
-                    <img src="/images/vectoradd.svg" alt="Button Add Image" class="profile__button-add">
-                </button>
-            </section>
-            <section class="cards">
-                <ul class="card__box">
-                    <li class="card__content">
-                        <img src="/images/yosemite.jpg" alt="Imagem do Vale de Yosemite" class="card__image">
-                        <div class="card__bar">
-                            <h4 class="card__text">Vale de Yosemite</h4>
-                            <button class="card__button"></button>
-                        </div>
-                    </li>
-                    <li class="card__content">
-                        <img src="/images/lagolouise.png" alt="Imagem do Lago Louise" class="card__image">
-                        <div class="card__bar">
-                            <h4 class="card__text">Lago Louise</h4>
-                            <button class="card__button"></button>
-                        </div>
-                    </li>
-                    <li class="card__content">
-                        <img src="/images/montanhas.png" alt="Imagem das Montanhas" class="card__image">
-                        <div class="card__bar">
-                            <h4 class="card__text">Montanhas Care...</h4>
-                            <button class="card__button"></button>
-                        </div>
-                    </li>
-                    <li class="card__content">
-                        <img src="/images/latemar.png" alt="Imagem de Latemar" class="card__image">
-                        <div class="card__bar">
-                            <h4 class="card__text">Latemar</h4>
-                            <button class="card__button"></button>
-                        </div>
-                    </li>
-                    <li class="card__content">
-                        <img src="/images/parque.png" alt="Imagem do Parque Nacional" class="card__image">
-                        <div class="card__bar">
-                            <h4 class="card__text">Parque Nacional...</h4>
-                            <button class="card__button"></button>
-                        </div>
-                    </li>
-                    <li class="card__content">
-                        <img src="/images/lagodibraies.png" alt="Imagem do Lago di Braies" class="card__image">
-                        <div class="card__bar">
-                            <h4 class="card__text">Lago di Braies</h4>
-                            <button class="card__button"></button>
-                        </div>
-                    </li>
-                    <!-- Adicione mais itens de card__content conforme necessário -->
-                </ul>
-            </section>
-        </main>
-        <footer class="footer">&copy; 2024 Around The U.S.</footer>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Kauane Ferreira" />
+    <meta name="description" content="Around the world" />
+    <meta
+      name="keywords"
+      content="united states, nature, nature, travel, social media"
+    />
+    <link rel="stylesheet" href="pages/index.css" />
+    <title>Around The U.S.</title>
+  </head>
+  <body class="page">
+    <div class="page__content">
+      <header class="header page__section">
+        <img
+          src="./images/arround-the-us-white.svg"
+          alt="Around the U.S. logo"
+          class="header__logo"
+        />
+      </header>
+      <main>
+        <section class="profile page__section">
+          <img
+            src="./images/jacques-cousteau.jpg"
+            alt="Photo of Jacques Cousteau"
+            class="profile__image"
+          />
+          <div class="profile__info">
+            <h1 class="profile__title">Jacques Cousteau</h1>
+            <button
+              type="button"
+              class="profile__edit-button"
+              id="profile-edit-button"
+            ></button>
+            <p class="profile__description">Explorer</p>
+          </div>
+          <button type="button" class="profile__add-button"></button>
+        </section>
+        <section class="cards page__section">
+          <ul class="cards__list">
+            <li class="card">
+              <img
+                src="./images/yosemite-valley.jpg"
+                alt="Picture of Yosemite Valley"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Yosemite Valley</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/lake-louise.png"
+                alt="Picture of Lake Louise"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Lake Louise</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/bald-mountains.png"
+                alt="Picture of Bald Mountains"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Bald Mountains</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/latemar.png"
+                alt="Picture of Latemar"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Latemar</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/vanoise-national-park.png"
+                alt="Picture of Vanoise National Park"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Vanoise National Park</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/lago-di-braies.png"
+                alt="Picture of Lago di Braies"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Lago di Braies</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+      <footer class="footer page__section">
+        <p class="footer__text">&copy; 2024 Around The U.S.</p>
+      </footer>
     </div>
-    <script src="/script/index.js"></script>
-</body>
+    <div class="modal" id="profile-edit-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="profile-close-button"></button>
+        <p class="modal__heading">Edit profile</p>
+        <form class="modal__form">
+          <input
+            placeholder="Name"
+            class="modal__input"
+            type="text"
+            name="title"
+            id="profile-title-input"
+          />
+          <input
+            placeholder="Description"
+            class="modal__input"
+            type="text"
+            name="description"
+            id="profile-description-input"
+          />
+          <button class="modal__button">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <li class="card">
+        <img src="" alt="" class="card__image" />
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button type="button" class="card__like-button"></button>
+        </div></li
+    ></template>
+
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>
