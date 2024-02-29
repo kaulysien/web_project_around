@@ -4,22 +4,22 @@ const handleLikeButtons = () => {
 
   likeButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
-      if (button.getAttribute("src") === "./images/like-button.png") {
+      if (button.getAttribute("src") === "./images/gostar.png") {
         return button.setAttribute("src", "./images/like-button-clicked.png");
       }
 
-      return button.setAttribute("src", "./images/like-button.png");
+      return button.setAttribute("src", "./images/gostar.png");
     });
   });
 };
 
 const handleNewLikeButton = (button) => {
   button.addEventListener("click", (e) => {
-    if (button.getAttribute("src") === "./images/like-button.png") {
+    if (button.getAttribute("src") === "./images/gostar.png") {
       return button.setAttribute("src", "./images/like-button-clicked.png");
     }
 
-    return button.setAttribute("src", "./images/like-button.png");
+    return button.setAttribute("src", "./images/gostar.png");
   });
 };
 
