@@ -95,6 +95,25 @@ function renderCard(cardData, wrapper) {
   wrapper.prepend(cardElement);
 }
 /* -------------------------------------------------------------------------- */
+/*                               Event Handlers                               */
+/* -------------------------------------------------------------------------- */
+function handleProfileEditSubmit(e) {
+  e.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  closeModal(profileEditModal);
+}
+
+function handleAddCardFormSubmit(e) {
+  e.preventDefault();
+  const name = cardTitleInput.value;
+  const link = cardUrlInput.value;
+  renderCard({ name, link }, cardListEl);
+  closeModal(addCardModal);
+  addCardForm.reset();
+}
+
+/* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
 profileEditButton.addEventListener("click", () => {
@@ -127,6 +146,7 @@ addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 previewImageCloseButton.addEventListener("click", () => {
   closeModal(previewImageModal);
 });
+
 /* -------------------------------------------------------------------------- */
 /*                                  Styles                                    */
 /* -------------------------------------------------------------------------- */
@@ -149,6 +169,7 @@ style.innerHTML =
 }
 ;
 document.head.appendChild(style);
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
