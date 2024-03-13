@@ -16,13 +16,15 @@
 }
 
 .modal__container {
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
   margin: auto;
   padding: 36px;
   border-radius: 10px;
   position: relative;
   width: 100%;
   max-width: 358px;
+  position: relative;
+  z-index: 999;
 }
 
 .modal__close {
@@ -38,6 +40,10 @@
   bottom: calc(100% + 5px);
   cursor: pointer;
   padding: 0;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
 }
 
 .modal__close:hover {
@@ -113,23 +119,6 @@
     font-size: 14px;
     line-height: 17px;
   }
-}
-
-.modal__container {
-  background-color: rgba(0, 0, 0, 0.5); /* Adiciona um fundo semi-transparente */
-  position: relative; /* Certifica-se de que o botão de fechar fique posicionado corretamente */
-  z-index: 999; /* Garante que o modal fique acima do conteúdo da página */
-}
-
-.modal__close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
 }
 
 .modal__close::after, .modal__close::before {
