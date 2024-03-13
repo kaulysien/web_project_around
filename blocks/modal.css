@@ -114,3 +114,36 @@
     line-height: 17px;
   }
 }
+
+.modal__container {
+  background-color: rgba(0, 0, 0, 0.5); /* Adiciona um fundo semi-transparente */
+  position: relative; /* Certifica-se de que o botão de fechar fique posicionado corretamente */
+  z-index: 999; /* Garante que o modal fique acima do conteúdo da página */
+}
+
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.modal__close::after, .modal__close::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 24px;
+  background-color: #fff;
+}
+
+.modal__close::after {
+  transform: rotate(45deg);
+}
+
+.modal__close::before {
+  transform: rotate(-45deg);
+}
