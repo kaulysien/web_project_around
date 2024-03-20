@@ -1,178 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Kauane Ferreira" />
-    <meta name="description" content="Around the world project" />
-    <meta
-      name="keywords"
-      content="united states, nature, nature, travel, social media"
-    />
-    <link rel="stylesheet" href="pages/index.css" />
-    <title>Around The U.S.</title>
-    <style>
-      /* Estilos adicionados para corrigir o layout do popup de imagem */
-      .modal__container.modal__image-container {
-          text-align: center; /* Centralizar o conteúdo */
-          max-width: 80%; /* Limitar a largura máxima */
-          margin: 0 auto; /* Centralizar horizontalmente */
-          overflow: hidden; /* Impedir que a imagem se estenda além do container */
-          position: relative; /* Permitir centralização vertical */
-      }
-      .modal__preview-image {
-          max-width: 100%; /* Garantir que a imagem não ultrapasse os limites do container */
-          max-height: 80vh; /* Limitar a altura máxima */
-          position: absolute; /* Permitir centralização vertical */
-          top: 50%; /* Posicionar no meio verticalmente */
-          left: 50%; /* Posicionar no meio horizontalmente */
-          transform: translate(-50%, -50%); /* Centralizar a imagem */
-      }
-    </style>
-  </head>
-  <body class="page">
-    <div class="page__content">
-      <header class="header page__section">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Kauane Ferreira" />
+  <meta name="description" content="Around the world project" />
+  <meta
+    name="keywords"
+    content="united states, nature, nature, travel, social media"
+  />
+  <link rel="stylesheet" href="pages/index.css" />
+  <title>Around The U.S.</title>
+  <style>
+    /* Estilos adicionados para corrigir o layout do popup de imagem */
+    .modal__container.modal__image-container {
+        text-align: center; /* Centralizar o conteúdo */
+        max-width: 80%; /* Limitar a largura máxima */
+        margin: 0 auto; /* Centralizar horizontalmente */
+        overflow: hidden; /* Impedir que a imagem se estenda além do container */
+        position: relative; /* Permitir centralização vertical */
+    }
+    .modal__preview-image {
+        max-width: 100%; /* Garantir que a imagem não ultrapasse os limites do container */
+        max-height: 80vh; /* Limitar a altura máxima */
+        position: absolute; /* Permitir centralização vertical */
+        top: 50%; /* Posicionar no meio verticalmente */
+        left: 50%; /* Posicionar no meio horizontalmente */
+        transform: translate(-50%, -50%); /* Centralizar a imagem */
+    }
+    .modal__error {
+      color: red;
+    }
+  </style>
+</head>
+<body class="page">
+  <div class="page__content">
+    <header class="header page__section">
+      <img
+        src="./images/arround-the-us-white.svg"
+        alt="Around the U.S. logo"
+        class="header__logo"
+      />
+    </header>
+    <main>
+      <section class="profile page__section">
         <img
-          src="./images/arround-the-us-white.svg"
-          alt="Around the U.S. logo"
-          class="header__logo"
+          src="./images/jacques-cousteau.jpg"
+          alt="Photo of Jacques Cousteau"
+          class="profile__image"
         />
-      </header>
-      <main>
-        <section class="profile page__section">
-          <img
-            src="./images/jacques-cousteau.jpg"
-            alt="Photo of Jacques Cousteau"
-            class="profile__image"
-          />
-          <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
-            <button
-              type="button"
-              class="profile__edit-button"
-              id="profile-edit-button"
-            ></button>
-            <p class="profile__description">Explorer</p>
-          </div>
-          <button type="button" class="profile__add-button"></button>
-        </section>
-        <section class="cards page__section">
-          <ul class="cards__list"></ul>
-        </section>
-      </main>
-      <footer class="footer page__section">
-        <p class="footer__text">&copy; 2024 Around The U.S.</p>
-      </footer>
+        <div class="profile__info">
+          <h1 class="profile__title">Jacques Cousteau</h1>
+          <button
+            type="button"
+            class="profile__edit-button"
+            id="profile-edit-button"
+          ></button>
+          <p class="profile__description">Explorer</p>
+        </div>
+        <button type="button" class="profile__add-button"></button>
+      </section>
+      <section class="cards page__section">
+        <ul class="cards__list"></ul>
+      </section>
+    </main>
+    <footer class="footer page__section">
+      <p class="footer__text">&copy; 2024 Around The U.S.</p>
+    </footer>
+  </div>
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                               Edit Modal                                -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div class="modal" id="profile-edit-modal">
+    <div class="modal__container">
+      <button class="modal__close" id="profile-close-button"></button>
+      <p class="modal__heading">Edit profile</p>
+      <form class="modal__form" id="profile-edit-form">
+        <input
+          placeholder="Name"
+          class="modal__input"
+          type="text"
+          name="title"
+          id="profile-title-input"
+          required
+        />
+        <span class="modal__error" id="profile-title-error"></span>
+        <input
+          placeholder="Description"
+          class="modal__input"
+          type="text"
+          name="description"
+          id="profile-description-input"
+          required
+        />
+        <span class="modal__error" id="profile-description-error"></span>
+        <button class="modal__button" id="profile-save-button" disabled>Save</button>
+      </form>
     </div>
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                               Edit Modal                                -->
-    <!-- ----------------------------------------------------------------------- -->
-    <div class="modal" id="profile-edit-modal">
-      <div class="modal__container">
-        <button class="modal__close" id="profile-close-button"></button>
-        <p class="modal__heading">Edit profile</p>
-        <form class="modal__form">
-          <input
-            placeholder="Name"
-            class="modal__input"
-            type="text"
-            name="title"
-            id="profile-title-input"
-            required
-          />
-          <input
-            placeholder="Description"
-            class="modal__input"
-            type="text"
-            name="description"
-            id="profile-description-input"
-            required
-          />
-          <button class="modal__button">Save</button>
-        </form>
+  </div>
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                                Add Card Modal                                -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div class="modal" id="card-add-modal">
+    <div class="modal__container">
+      <button class="modal__close" id="card-close-button"></button>
+      <p class="modal__heading">New Place</p>
+      <form class="modal__form" id="add-card-form">
+        <input
+          placeholder="Title"
+          class="modal__input modal__input_type_title"
+          type="text"
+          name="title"
+          id="add-card-title-input"
+          required
+        />
+        <span class="modal__error" id="add-card-title-error"></span>
+        <input
+          placeholder="Image link"
+          class="modal__input modal__input_type_url"
+          type="text"
+          name="link"
+          id="add-card-image-input"
+          required
+        />
+        <span class="modal__error" id="add-card-image-error"></span>
+        <button class="modal__button" id="add-card-create-button" disabled>Create</button>
+      </form>
+    </div>
+  </div>
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                           Preview Image Modal                           -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div class="modal" id="preview-image-modal">
+    <div class="modal__container modal__image-container">
+      <img src=" " alt="" class="modal__preview-image" />
+      <h2 class="modal__preview-title"></h2>
+      <button class="modal__close"></button>
+    </div>
+  </div>
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                              Card Template                              -->
+  <!-- ----------------------------------------------------------------------- -->
+  <template id="card-template">
+    <li class="card">
+      <img src=" " alt="" class="card__image" />
+      <div class="card__description">
+        <h2 class="card__title"></h2>
+        <button type="button" class="card__like-button"></button>
+        <button type="button" class="card__delete-button"></button>
       </div>
-    </div>
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                Add Card Modal                                -->
-    <!-- ----------------------------------------------------------------------- -->
-    <div class="modal" id="card-add-modal">
-      <div class="modal__container">
-        <button class="modal__close" id="card-close-button"></button>
-        <p class="modal__heading">New Place</p>
-        <form class="modal__form">
-          <input
-            placeholder="Title"
-            class="modal__input modal__input_type_title"
-            type="text"
-            name="title"
-            id="add-card-form"
-            required
-          />
-          <input
-            placeholder="Image link"
-            class="modal__input modal__input_type_url"
-            type="text"
-            name="link"
-            id="card-image-input"
-            required
-          />
-          <button class="modal__button">Create</button>
-        </form>
-      </div>
-    </div>
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                           Preview Image Modal                           -->
-    <!-- ----------------------------------------------------------------------- -->
-    <div class="modal" id="preview-image-modal">
-      <div class="modal__container modal__image-container">
-        <img src=" " alt="" class="modal__preview-image" />
-        <h2 class="modal__preview-title"></h2>
-        <button class="modal__close"></button>
-      </div>
-    </div>
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                              Card Template                              -->
-    <!-- ----------------------------------------------------------------------- -->
-    <template id="card-template">
-      <li class="card">
-        <img src=" " alt="" class="card__image" />
-        <div class="card__description">
-          <h2 class="card__title"></h2>
-          <button type="button" class="card__like-button"></button>
-          <button type="button" class="card__delete-button"></button>
-        </div></li
-    ></template>
+    </li>
+  </template>
 
-    <script src="./scripts/index.js"></script>
-    <script>
-      // Adicionando uma função de validação para o formulário modal__form
-      document.addEventListener('DOMContentLoaded', function() {
-          const form = document.querySelector('.modal__form');
+  <script src="./scripts/index.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const profileEditForm = document.getElementById('profile-edit-form');
+      const profileTitleInput = document.getElementById('profile-title-input');
+      const profileDescriptionInput = document.getElementById('profile-description-input');
+      const profileSaveButton = document.getElementById('profile-save-button');
 
-          form.addEventListener('submit', function(event) {
-              // Impede o envio padrão do formulário
-              event.preventDefault();
+      profileEditForm.addEventListener('input', function() {
+        const profileTitleError = document.getElementById('profile-title-error');
+        const profileDescriptionError = document.getElementById('profile-description-error');
 
-              // Valida se os campos estão preenchidos
-              const inputs = form.querySelectorAll('.modal__input');
-              let isValid = true;
-
-              inputs.forEach(function(input) {
-                  if (input.value.trim() === '') {
-                      isValid = false;
-                  }
-              });
-
-              // Se algum campo estiver vazio, exibe uma mensagem de erro
-              if (!isValid) {
-                  alert('Por favor, preencha todos os campos.');
-              } else {
-                  // Se todos os campos estiverem preenchidos, envie o formulário
+        // Validação do campo de nome
+        if (profileTitleInput.value.length < 2 || profileTitleInput.value.length > 40) {
+          profileTitleError.textContent = 'Nome deve conter entre 2 e 40 caracteres.';
+        } else {
+          // Se todos os campos estiverem preenchidos, envie o formulário
                   form.submit();
               }
           });
       });
   </script>
-  </body>
+</body>
 </html>
