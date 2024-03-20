@@ -153,26 +153,64 @@
   </template>
 
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const profileEditForm = document.getElementById('profile-edit-form');
-      const profileTitleInput = document.getElementById('profile-title-input');
-      const profileDescriptionInput = document.getElementById('profile-description-input');
-      const profileSaveButton = document.getElementById('profile-save-button');
+  document.addEventListener('DOMContentLoaded', function() {
+  const profileEditForm = document.getElementById('profile-edit-form');
+  const profileTitleInput = document.getElementById('profile-title-input');
+  const profileDescriptionInput = document.getElementById('profile-description-input');
+  const profileSaveButton = document.getElementById('profile-save-button');
 
-      profileEditForm.addEventListener('input', function() {
-        const profileTitleError = document.getElementById('profile-title-error');
-        const profileDescriptionError = document.getElementById('profile-description-error');
+  profileEditForm.addEventListener('input', function() {
+    const profileTitleError = document.getElementById('profile-title-error');
+    const profileDescriptionError = document.getElementById('profile-description-error');
 
-        // Validação do campo de nome
-        if (profileTitleInput.value.length < 2 || profileTitleInput.value.length > 40) {
-          profileTitleError.textContent = 'Nome deve conter entre 2 e 40 caracteres.';
-        } else {
-          // Se todos os campos estiverem preenchidos, envie o formulário
-                  form.submit();
-              }
-          });
-      });
+    // Validação do campo de nome
+    if (profileTitleInput.value.length < 2 || profileTitleInput.value.length > 40) {
+      profileTitleError.textContent = 'Nome deve conter entre 2 e 40 caracteres.';
+    } else {
+      profileTitleError.textContent = ''; // Limpa a mensagem de erro
+    }
+
+    // Configurações de validação do formulário de edição de perfil
+    enableValidation({
+      formSelector: "#profile-edit-form",
+      inputSelector: ".modal__input",
+      submitButtonSelector: "#profile-save-button",
+      inactiveButtonClass: "modal__button_disabled",
+      inputErrorClass: "modal__input_type_error",
+      errorClass: "modal__error_visible"
+    });
+
+    // Configurações de validação do formulário de adição de cartão
+    enableValidation({
+      formSelector: "#add-card-form",
+      inputSelector: ".modal__input",
+      submitButtonSelector: "#add-card-create-button",
+      inactiveButtonClass: "modal__button_disabled",
+      inputErrorClass: "modal__input_type_error",
+      errorClass: "modal__error_visible"
+    });
+  });
+
+  // Ouvinte de evento para fechar o pop-up clicando na sobreposição
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach(modal => {
+    modal.addEventListener('click', event => {
+      if (event.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+
+  // Ouvinte de evento para fechar o pop-up pressionando a tecla Esc
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      modals.forEach(modal => closeModal(modal));   
+    }
+  });
+});
+
   </script>
 </body>
 </html>
