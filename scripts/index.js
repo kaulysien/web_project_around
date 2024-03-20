@@ -146,3 +146,62 @@ addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 previewImageCloseButton.addEventListener("click", () => {
   closeModal(previewImageModal);
 });
+
+/* -------------------------------------------------------------------------- */
+/*                            Form Validation Functions                       */
+/* -------------------------------------------------------------------------- */
+
+function showError(input, message) {
+  const formField = input.parentElement;
+  const errorMessage = formField.querySelector('.error-message');
+  formField.classList.add('error');
+  errorMessage.textContent = message;
+}
+
+function hideError(input) {
+  const formField = input.parentElement;
+  formField.classList.remove('error');
+}
+
+function checkRequired(input) {
+  if (input.value.trim() === '') {
+    showError(input, 'Preencha esse campo');
+    return false;
+  } else {
+    hideError(input);
+    return true;
+  }
+}
+
+function checkLength(input, min, max) {
+  if (input.value.length < min || input.value.length > max) {
+    showError(input, `O campo deve conter entre ${min} e ${max} caracteres`);
+    return false;
+  } else {
+    hideError(input);
+    return true;
+  }
+}
+
+function validateForm() {
+  const isNameValid = checkRequired(profileTitleInput) && checkLength(profileTitleInput, 2, 40);
+  const isDescriptionValid = checkRequired(profileDescriptionInput) && checkLength(profileDescriptionInput, 2, 200);
+
+  const isFormValid = isNameValid && isDescriptionValid;
+
+  if (isFormValid) {
+    profileEditModal.querySelector('.modal__button').removeAttribute('disabled');
+  } else {
+    profileEditModal.querySelector('.modal__button').setAttribute('disabled', 'true');
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Event Listeners for Validation                  */
+/* -------------------------------------------------------------------------- */
+
+profileTitleInput.addEventListener('input', validateForm);
+profileDescriptionInput.addEventListener('input', validateForm);
+
+
+
