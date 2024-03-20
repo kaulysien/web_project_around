@@ -148,7 +148,7 @@ previewImageCloseButton.addEventListener("click", () => {
 });
 
 /* -------------------------------------------------------------------------- */
-/*                            Form Validation Functions                       */
+/*                           Form Validation Functions                       */
 /* -------------------------------------------------------------------------- */
 
 function showError(input, message) {
@@ -183,18 +183,37 @@ function checkLength(input, min, max) {
   }
 }
 
-function validateForm() {
-  const isNameValid = checkRequired(profileTitleInput) && checkLength(profileTitleInput, 2, 40);
-  const isDescriptionValid = checkRequired(profileDescriptionInput) && checkLength(profileDescriptionInput, 2, 200);
-
-  const isFormValid = isNameValid && isDescriptionValid;
-
-  if (isFormValid) {
-    profileEditModal.querySelector('.modal__button').removeAttribute('disabled');
+function checkUrl(input) {
+  const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+  if (!urlPattern.test(input.value.trim())) {
+    showError(input, 'Por favor, insira um endereço web');
+    return false;
   } else {
-    profileEditModal.querySelector('.modal__button').setAttribute('disabled', 'true');
+    hideError(input);
+    return true;
   }
 }
+
+function validateForm() {
+  const isTitleValid = checkRequired(cardTitleInput) && checkLength(cardTitleInput, 2, 30);
+  const isUrlValid = checkRequired(cardUrlInput) && checkUrl(cardUrlInput);
+
+  const isFormValid = isTitleValid && isUrlValid;
+
+  if (isFormValid) {
+    addCardCreateButton.removeAttribute('disabled');
+  } else {
+    addCardCreateButton.setAttribute('disabled', 'true');
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Event Listeners for Validation                  */
+/* -------------------------------------------------------------------------- */
+
+cardTitleInput.addEventListener('input', validateForm);
+cardUrlInput.addEventListener('input', validateForm);
+
 
 /* -------------------------------------------------------------------------- */
 /*                           Event Listeners for Validation                  */
