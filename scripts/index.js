@@ -200,8 +200,28 @@ function validateForm() {
 /*                           Event Listeners for Validation                  */
 /* -------------------------------------------------------------------------- */
 
-profileTitleInput.addEventListener('input', validateForm);
-profileDescriptionInput.addEventListener('input', validateForm);
+cardTitleInput.addEventListener('input', validateForm);
+cardUrlInput.addEventListener('input', validateForm);
+
+/* -------------------------------------------------------------------------- */
+/*                       Close Pop-up by Clicking Overlay                     */
+/* -------------------------------------------------------------------------- */
+
+addCardModal.addEventListener('click', event => {
+  if (event.target === addCardModal) {
+    closeModal(addCardModal);
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*                       Close Pop-up by Pressing Esc                         */
+/* -------------------------------------------------------------------------- */
+
+window.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    closeModal(addCardModal);
+  }
+});
 
 
 
