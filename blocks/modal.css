@@ -42,6 +42,8 @@
   top: 10px;
   right: 10px;
   cursor: pointer;
+  color: #999; 
+  font-size: 20px;
 }
 
 .modal__close:hover {
@@ -73,6 +75,12 @@
   height: 27px;
   padding-left: 5px;
   color: #000;
+}
+
+.modal__input:hover {
+  background-color: #f0f0f0; 
+  border-color: #ccc; 
+  
 }
 
 .modal__button {
@@ -115,6 +123,11 @@
   height: 12px;
 }
 
+
+.modal__button[disabled] {
+  opacity: 0.5; 
+}
+
 @media screen and (max-width: 565px) {
   .modal__close {
     top: -39px;
@@ -141,26 +154,3 @@
     line-height: 17px;
   }
 }
-
-/* Adiciona efeito hover nos inputs */
-.modal__input:hover {
-  background-color: #f0f0f0; 
-  border-color: #ccc; 
-  
-}
-
-/* Estilo para o botão de fechar */
-.modal__close {
-  
-  color: #999; 
-  font-size: 20px;
- 
-}
-
-.modal__button[disabled] {
-  opacity: 0.5; 
-  
-  
-}
-
-
