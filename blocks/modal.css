@@ -141,3 +141,26 @@
     line-height: 17px;
   }
 }
+
+/* Adiciona efeito hover nos inputs */
+.modal__input:hover {
+  background-color: #f0f0f0; 
+  border-color: #ccc; 
+  
+}
+
+/* Estilo para o botão de fechar */
+.modal__close {
+  
+  color: #999; 
+  font-size: 20px;
+ 
+}
+
+.modal__button[disabled] {
+  opacity: 0.5; 
+  cursor: not-allowed; 
+  
+}
+
+

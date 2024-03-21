@@ -85,15 +85,17 @@
           required
         />
         <span class="modal__error" id="profile-title-error"></span>
-        <input
-          placeholder="Description"
-          class="modal__input"
-          type="text"
-          name="description"
-          id="profile-description-input"
+        <input 
+          placeholder="Name" 
+          class="modal__input" 
+          type="text" 
+          name="title" 
+          id="profile-title-input" 
           required
+          oninvalid="this.setCustomValidity('Please enter your name')" 
+          oninput="setCustomValidity('')"
         />
-        <span class="modal__error" id="profile-description-error"></span>
+        <span class="modal__error" id="profile-title-error"></span>
         <button class="modal__button" id="profile-save-button" disabled>Save</button>
       </form>
     </div>
@@ -114,7 +116,7 @@
            id="add-card-title-input"
            required
         />
-        <span class="modal__error" id="add-card-title-error"></span>
+        <span class="modal__error" id="add-card-title-error" for="add-card-title-input"></span>
 
         <input
            placeholder="Image link"
@@ -124,7 +126,7 @@
            id="add-card-image-input"
            required
          />
-        <span class="modal__error error-message" id="add-card-image-error"></span>
+        <span class="modal__error error-message" id="add-card-image-error" for="add-card-image-input"></span>
         <button class="modal__button" id="add-card-create-button" disabled>Create</button>
       </form>
     </div>
@@ -134,7 +136,7 @@
   <!-- ----------------------------------------------------------------------- -->
   <div class="modal" id="preview-image-modal">
     <div class="modal__container modal__image-container">
-      <img src=" " alt="" class="modal__preview-image" />
+      <img src=" " alt="Pré-visualização da imagem" class="modal__preview-image" />
       <h2 class="modal__preview-title"></h2>
       <button class="modal__close"></button>
     </div>
@@ -144,7 +146,7 @@
   <!-- ----------------------------------------------------------------------- -->
   <template id="card-template">
     <li class="card">
-      <img src=" " alt="" class="card__image" />
+      <img src=" " alt="Imagem do cartão" class="card__image" />
       <div class="card__description">
         <h2 class="card__title"></h2>
         <button type="button" class="card__like-button"></button>
@@ -154,64 +156,5 @@
   </template>
 
   <script src="./scripts/index.js"></script>
-  <script src="./scripts/validate.js"></script>
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-  const profileEditForm = document.getElementById('profile-edit-form');
-  const profileTitleInput = document.getElementById('profile-title-input');
-  const profileDescriptionInput = document.getElementById('profile-description-input');
-  const profileSaveButton = document.getElementById('profile-save-button');
-
-  profileEditForm.addEventListener('input', function() {
-    const profileTitleError = document.getElementById('profile-title-error');
-    const profileDescriptionError = document.getElementById('profile-description-error');
-
-    // Validação do campo de nome
-    if (profileTitleInput.value.length < 2 || profileTitleInput.value.length > 40) {
-      profileTitleError.textContent = 'Nome deve conter entre 2 e 40 caracteres.';
-    } else {
-      profileTitleError.textContent = ''; // Limpa a mensagem de erro
-    }
-
-    // Configurações de validação do formulário de edição de perfil
-    enableValidation({
-      formSelector: "#profile-edit-form",
-      inputSelector: ".modal__input",
-      submitButtonSelector: "#profile-save-button",
-      inactiveButtonClass: "modal__button_disabled",
-      inputErrorClass: "modal__input_type_error",
-      errorClass: "modal__error_visible"
-    });
-
-    // Configurações de validação do formulário de adição de cartão
-    enableValidation({
-      formSelector: "#add-card-form",
-      inputSelector: ".modal__input",
-      submitButtonSelector: "#add-card-create-button",
-      inactiveButtonClass: "modal__button_disabled",
-      inputErrorClass: "modal__input_type_error",
-      errorClass: "modal__error_visible"
-    });
-  });
-
-  // Ouvinte de evento para fechar o pop-up clicando na sobreposição
-  const modals = document.querySelectorAll('.modal');
-  modals.forEach(modal => {
-    modal.addEventListener('click', event => {
-      if (event.target === modal) {
-        closeModal(modal);
-      }
-    });
-  });
-
-  // Ouvinte de evento para fechar o pop-up pressionando a tecla Esc
-  window.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
-      modals.forEach(modal => closeModal(modal));   
-    }
-  });
-});
-
-  </script>
 </body>
 </html>
