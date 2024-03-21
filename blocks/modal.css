@@ -42,7 +42,6 @@
   top: 10px;
   right: 10px;
   cursor: pointer;
-  color: #999; 
   font-size: 20px;
 }
 
@@ -79,7 +78,7 @@
 
 .modal__input:hover {
   background-color: #f0f0f0; 
-  border-color: #ccc; 
+
   
 }
 
