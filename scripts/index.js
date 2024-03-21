@@ -250,14 +250,14 @@ modal.addEventListener('click', event => {
   }
 });
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
+
+document.addEventListener('DOMContentLoaded', function() {
   const profileEditForm = document.getElementById('profile-edit-form');
   const profileTitleInput = document.getElementById('profile-title-input'); 
   const profileDescriptionInput = document.getElementById('profile-description-input');
   const profileSaveButton = document.getElementById('profile-save-button');
 
-  profileEditForm.addEventListener('input', function() {
+profileEditForm.addEventListener('input', function() {
     const profileTitleError = document.getElementById('profile-title-error');
     const profileDescriptionError = document.getElementById('profile-description-error');
 
@@ -307,7 +307,7 @@ modal.addEventListener('click', event => {
   });
 });
 
-</script>
+
 
 
 
