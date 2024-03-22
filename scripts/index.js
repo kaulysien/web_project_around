@@ -242,14 +242,6 @@ window.addEventListener('keydown', event => {
   }
 });
 
-// Ouvinte de evento para fechar o pop-up clicando na sobreposição
-const modal = document.getElementById('preview-image-modal');
-modal.addEventListener('click', event => {
-  if (event.target === modal) {
-    closeModal(modal);
-  }
-});
-
 
 document.addEventListener('DOMContentLoaded', function() {
   const profileEditForm = document.getElementById('profile-edit-form');
@@ -257,10 +249,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const profileDescriptionInput = document.getElementById('profile-description-input');
   const profileSaveButton = document.getElementById('profile-save-button');
 
-profileEditForm.addEventListener('input', function() {
+  profileEditForm.addEventListener('input', function() {
     const profileTitleError = document.getElementById('profile-title-error');
     const profileDescriptionError = document.getElementById('profile-description-error');
-
+    
     // Validação do campo de nome
     if (profileTitleInput.value.length < 2 || profileTitleInput.value.length > 40) {
       profileTitleError.textContent = 'Nome deve conter entre 2 e 40 caracteres.';
@@ -288,27 +280,100 @@ profileEditForm.addEventListener('input', function() {
       errorClass: "modal__error_visible"
     });
   });
+});
 
-  // Ouvinte de evento para fechar o pop-up clicando na sobreposição
-  const modals = document.querySelectorAll('.modal');
-  modals.forEach(modal => {
-    modal.addEventListener('click', event => {
-      if (event.target === modal) {
-        closeModal(modal);
-      }
-    });
-  });
-
-  // Ouvinte de evento para fechar o pop-up pressionando a tecla Esc
-  window.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
-      modals.forEach(modal => closeModal(modal));   
+// Ouvinte de evento para fechar o pop-up clicando na sobreposição
+const modals = document.querySelectorAll('.modal');
+modals.forEach(modal => {
+  modal.addEventListener('click', event => {
+    if (event.target === modal) {
+      closeModal(modal);
     }
   });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const profileTitleInput = document.getElementById('profile-title-input');
+  const profileTitleError = document.getElementById('profile-title-error');
+
+  // Ouvinte de evento para verificar quando o conteúdo do campo de entrada é alterado
+  profileTitleInput.addEventListener('input', function() {
+    // Verifica se o campo de entrada está vazio
+    if (profileTitleInput.value.trim() === '') {
+      profileTitleError.textContent = 'Preencha esse campo'; // Exibe a mensagem de erro
+    } else {
+      profileTitleError.textContent = ''; // Limpa a mensagem de erro se o campo não estiver vazio
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const profileDescriptionInput = document.getElementById('profile-description-input');
+  const profileDescriptionError = document.getElementById('profile-description-error');
+  const profileSaveButton = document.getElementById('profile-save-button');
+
+  // Ouvinte de evento para verificar quando o conteúdo do campo de descrição é alterado
+  profileDescriptionInput.addEventListener('input', function() {
+    // Verifica se o campo de descrição está vazio
+    if (profileDescriptionInput.value.trim() === '') {
+      profileDescriptionError.textContent = 'Preencha esse campo'; // Exibe a mensagem de erro
+    } else {
+      profileDescriptionError.textContent = ''; // Limpa a mensagem de erro se o campo não estiver vazio
+    }
+
+    // Verifica se ambos os campos estão preenchidos para habilitar o botão de salvar
+    validateProfileForm();
+  });
+
+  // Função para validar o formulário de perfil
+  function validateProfileForm() {
+    const titleValid = profileTitleInput.value.trim() !== '';
+    const descriptionValid = profileDescriptionInput.value.trim() !== '';
+
+    // Verifica se ambos os campos estão preenchidos para habilitar o botão de salvar
+    if (titleValid && descriptionValid) {
+      profileSaveButton.removeAttribute('disabled');
+    } else {
+      profileSaveButton.setAttribute('disabled', 'true');
+    }
+  }
+});
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  const cardTitleInput = document.getElementById('card-title-input');
+  const cardUrlInput = document.getElementById('card-url-input');
+  const cardTitleError = document.getElementById('card-title-error');
+  const cardUrlError = document.getElementById('card-url-error');
+  const addCardCreateButton = document.getElementById('add-card-create-button');
 
+  cardTitleInput.addEventListener('input', function() {
+    if (cardTitleInput.value.trim() === '') {
+      cardTitleError.textContent = 'Please enter the place name';
+    } else {
+      cardTitleError.textContent = '';
+    }
+    validateForm();
+  });
 
+  cardUrlInput.addEventListener('input', function() {
+    if (cardUrlInput.value.trim() === '') {
+      cardUrlError.textContent = 'Please enter the place URL';
+    } else {
+      cardUrlError.textContent = '';
+    }
+    validateForm();
+  });
+
+  function validateForm() {
+    const titleValid = cardTitleInput.value.trim() !== '';
+    const urlValid = cardUrlInput.value.trim() !== '';
+
+    if (titleValid && urlValid) {
+      addCardCreateButton.removeAttribute('disabled');
+    } else {
+      addCardCreateButton.setAttribute('disabled', 'true');
+    }
+  }
+});
 
