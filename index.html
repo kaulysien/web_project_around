@@ -11,153 +11,153 @@
   />
   <link rel="stylesheet" href="pages/index.css" />
   <title>Around The U.S.</title>
-  <style>
-    /* Estilos adicionados para corrigir o layout do popup de imagem */
-    .modal__container.modal__image-container {
-        text-align: center; /* Centralizar o conteúdo */
-        max-width: 80%; /* Limitar a largura máxima */
-        margin: 0 auto; /* Centralizar horizontalmente */
-        overflow: hidden; /* Impedir que a imagem se estenda além do container */
-        position: relative; /* Permitir centralização vertical */
-    }
-    .modal__preview-image {
-        max-width: 100%; /* Garantir que a imagem não ultrapasse os limites do container */
-        max-height: 80vh; /* Limitar a altura máxima */
-        position: absolute; /* Permitir centralização vertical */
-        top: 50%; /* Posicionar no meio verticalmente */
-        left: 50%; /* Posicionar no meio horizontalmente */
-        transform: translate(-50%, -50%); /* Centralizar a imagem */
-    }
-    .modal__error {
-      color: red;
-    }
-  </style>
 </head>
-<body class="page">
-  <div class="page__content">
-    <header class="header page__section">
+<body>
+  <div class="page">
+    <header class="header">
       <img
-        src="./images/arround-the-us-white.svg"
-        alt="Around the U.S. logo"
         class="header__logo"
+        src="./images/logo-around-the-us.svg"
+        alt="Logo Around the U.S"
       />
     </header>
     <main>
-      <section class="profile page__section">
+      <section class="profile">
         <img
-          src="./images/jacques-cousteau.jpg"
-          alt="Photo of Jacques Cousteau"
           class="profile__image"
+          src="./images/profile-pic.jpg"
+          alt="Imagem de homem idoso com gorro vermelho e camisa de botão"
         />
-        <div class="profile__info">
-          <h1 class="profile__title">Jacques Cousteau</h1>
-          <button
-            type="button"
-            class="profile__edit-button"
-            id="profile-edit-button"
-          ></button>
-          <p class="profile__description">Explorer</p>
+        <div class="profile__wrapper-texts">
+          <div class="profile__wrapper-name-and-edit-button">
+            <h1 class="profile__name">Jacques Cousteau</h1>
+            <button class="profile__edit-button">
+              <img
+                class="profile__edit-icon"
+                src="./images/edit-icon.svg"
+                alt="Icone de edição"
+              />
+            </button>
+          </div>
+          <p class="profile__role">Explorador</p>
         </div>
-        <button type="button" class="profile__add-button"></button>
+        <button class="profile__add-card-button">
+          <img
+            class="profile__add-card-icon"
+            src="./images/add-card-icon.svg"
+            alt="Add card button"
+          />
+        </button>
       </section>
-      <section class="cards page__section">
-        <ul class="cards__list"></ul>
-      </section>
-    </main>
-    <footer class="footer page__section">
-      <p class="footer__text">&copy; 2024 Around The U.S.</p>
-    </footer>
-  </div>
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                               Edit Modal                                -->
-  <!-- ----------------------------------------------------------------------- -->
-  <div class="modal" id="profile-edit-modal">
-    <div class="modal__container">
-      <button class="modal__close" id="profile-close-button"></button>
-      <p class="modal__heading">Edit profile</p>
-      <form class="modal__form" id="profile-edit-form">
-        <input
-          placeholder="Name"
-          class="modal__input"
-          type="text"
-          name="title"
-          id="profile-title-input"
-          required
-        />
-        <span class="modal__error" id="profile-title-error"></span>
-        <input 
-          placeholder="Description" 
-          class="modal__input" 
-          type="text" 
-          name="description" 
-          id="profile-description-input" 
-          required
-          oninvalid="this.setCustomValidity('Please enter your description')" 
-          oninput="setCustomValidity('')"
-        />
-        <span class="modal__error" id="profile-description-error"></span>
-        <button class="modal__button" id="profile-save-button" disabled>Save</button>
-      </form>
-    </div>
-  </div>
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                                Add Card Modal                                -->
-  <!-- ----------------------------------------------------------------------- -->
-  <div class="modal" id="card-add-modal">
-    <div class="modal__container">
-      <button class="modal__close" id="card-close-button"></button>
-      <p class="modal__heading">New Place</p>
-      <!-- No HTML -->
-  <form class="modal__form" id="add-card-form">
-    <input
-      placeholder="Place Name"
-      class="modal__input"
-      type="text"
-      name="title"
-      id="card-title-input"
-      required
-     />
-     <span class="modal__error" id="card-title-error"></span>
-
-    <input
-      placeholder="Place URL"
-      class="modal__input"
-      type="text"
-      name="url"
-      id="card-url-input"
-      required
-     />
-     <span class="modal__error" id="card-url-error"></span>
-
-    <button class="modal__button" id="add-card-create-button" disabled>Create</button>
-  </form>
-
-    </div>
-  </div>
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                           Preview Image Modal                           -->
-  <!-- ----------------------------------------------------------------------- -->
-  <div class="modal" id="preview-image-modal">
-    <div class="modal__container modal__image-container">
-      <img src=" " alt="Pré-visualização da imagem" class="modal__preview-image" />
-      <h2 class="modal__preview-title"></h2>
-      <button class="modal__close"></button>
-    </div>
-  </div>
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                              Card Template                              -->
-  <!-- ----------------------------------------------------------------------- -->
-  <template id="card-template">
-    <li class="card">
-      <img src=" " alt="Imagem do cartão" class="card__image" />
-      <div class="card__description">
-        <h2 class="card__title"></h2>
-        <button type="button" class="card__like-button"></button>
-        <button type="button" class="card__delete-button"></button>
+      <div class="elements">
+        <template id="template">
+          <div class="elements__card">
+            <button type="button" class="elements__delete-button">
+              <img
+                class="elements__delete-icon"
+                src="./images/trash.png"
+                alt="delete button icon"
+              />
+            </button>
+            <img class="elements__card-image" src="#" alt="" />
+            <div class="elements__wrapper-text-and-like-button">
+              <p class="elements__card-name"></p>
+              <button type="button" class="elements__like-button">
+                <img
+                  class="elements__like-icon"
+                  src="./images/like-button.png"
+                  alt="like button icon"
+                />
+              </button>
+            </div>
+          </div>
+        </template>
       </div>
-    </li>
-  </template>
-
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2024 Around The U.S.</p>
+    </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <img
+          class="popup__close-button"
+          src="./images/close-icon.png"
+          alt="Botão de fechar o popup"
+        />
+        <h2 class="popup__title">Editar perfil</h2>
+        <form class="popup__form">
+          <input
+            id="input-name"
+            class="popup__input"
+            type="text"
+            placeholder="Nome"
+            value="Jacques Cousteau"
+          />
+          <span id="input-name-error" class="popup__form-error"></span>
+          <input
+            id="input-role"
+            class="popup__input"
+            type="text"
+            placeholder="sobre-mim"
+            value="Explorador"
+          />
+          <span id="input-role-error" class="popup__form-error"></span>
+          <button id="save-button" class="popup__save-button" type="submit">
+            Salvar
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup-add-card">
+      <div class="popup__container">
+        <img
+          class="popup__close-button popup-add-card__close-button"
+          src="./images/close-icon.png"
+          alt="Botão de fechar o popup"
+        />
+        <h2 class="popup__title">Novo local</h2>
+        <form class="popup__form popup__add-card-form">
+          <input
+            id="input-location-name"
+            class="popup__input"
+            type="text"
+            placeholder="Titulo"
+          />
+          <span
+            id="input-location-name-error"
+            class="popup__form-error"
+          ></span>
+          <input
+            id="input-image"
+            class="popup__input"
+            type="text"
+            placeholder="Link da imagem"
+          />
+          <span id="input-image-error" class="popup__form-error"></span>
+          <button
+            id="create-button"
+            class="popup__save-button popup-add-card__create-button"
+            type="submit"
+          >
+            Criar
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup-view-image">
+      <div class="popup__container popup-view-image__image-container">
+        <img
+          class="popup__close-button popup-view-image__close-button"
+          src="./images/close-icon.png"
+          alt="Botão de fechar o popup"
+        />
+        <div class="popup-view-image__image-container">
+          <img class="popup-view-image__render-image" src="#" alt="#" />
+          <span class="popup-view-image__image-title"></span>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
