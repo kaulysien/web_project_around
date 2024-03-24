@@ -80,6 +80,11 @@
   opacity: 0.8; 
 }
 
+.profile__button-content {
+  display: flex;
+  align-items: center;
+  cursor: pointer; 
+}
 
 @media screen and (max-width: 880px) {
   .profile {
