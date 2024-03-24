@@ -78,7 +78,6 @@
 
 .profile__add-card-button:hover {
   opacity: 0.8; 
-  cursor: pointer;
 }
 
 .profile__button-content {
