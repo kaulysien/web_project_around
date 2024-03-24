@@ -23,32 +23,25 @@
     </header>
     <main>
       <section class="profile">
-        <img
-          class="profile__image"
-          src="./images/profile-pic.jpg"
-          alt="Imagem de homem idoso com gorro vermelho e camisa de botão"
-        />
+        <img class="profile__image" src="./images/profile-pic.jpg" alt="Imagem de homem idoso com gorro vermelho e camisa de botão" />
         <div class="profile__wrapper-texts">
           <div class="profile__wrapper-name-and-edit-button">
             <h1 class="profile__name">Jacques Cousteau</h1>
             <button class="profile__edit-button">
-              <img
-                class="profile__edit-icon"
-                src="./images/edit-icon.svg"
-                alt="Icone de edição"
-              />
+              <img class="profile__edit-icon" src="./images/edit-icon.svg" alt="Ícone de edição" />
             </button>
           </div>
           <p class="profile__role">Explorador</p>
         </div>
-        <button class="profile__add-card-button">
-          <img
-            class="profile__add-card-icon"
-            src="./images/add-card-icon.svg"
-            alt="Add card button"
-          />
+        <!-- Corrigi o botão de adicionar um novo card -->
+        <button class="profile__add-card-button" style="cursor: pointer;">
+          <div class="profile__button-content">
+            <img class="profile__add-icon" src="./images/plus-icon.svg" alt="Ícone de adição" />
+            <span class="profile__button-description">Adicionar cartão</span>
+          </div>
         </button>
       </section>
+    </main>
       <div class="elements">
         <template id="template">
           <div class="elements__card">
@@ -59,7 +52,7 @@
                 alt="delete button icon"
               />
             </button>
-            <img class="elements__card-image" src="#" alt="" />
+            <img class="elements__card-image" src="#" alt="Elemento com imagem do cartão" />
             <div class="elements__wrapper-text-and-like-button">
               <p class="elements__card-name"></p>
               <button type="button" class="elements__like-button">
@@ -152,7 +145,7 @@
           alt="Botão de fechar o popup"
         />
         <div class="popup-view-image__image-container">
-          <img class="popup-view-image__render-image" src="#" alt="#" />
+          <img class="popup-view-image__render-image" src="#" alt="Popup para visualizar a imagem" />
           <span class="popup-view-image__image-title"></span>
         </div>
       </div>
