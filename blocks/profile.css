@@ -73,7 +73,13 @@
   max-width: 150px;
   background-color: transparent;
   border: 1px solid #ffffff;
+  cursor: pointer;
 }
+
+.profile__add-card-button:hover {
+  opacity: 0.8; 
+}
+
 
 @media screen and (max-width: 880px) {
   .profile {
@@ -128,12 +134,4 @@
     line-height: 16.94px;
     text-align: center;
   }
-}
-
-.profile__add-card-button {
-  cursor: pointer;
-}
-
-.profile__add-card-button:hover {
-  opacity: 0.8; 
 }
