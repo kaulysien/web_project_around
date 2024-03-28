@@ -1,4 +1,5 @@
 import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 export const popup = document.querySelector(".popup");
 export const titleHeader = document.querySelector(".header__title");
