@@ -1,172 +1,99 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+// Importação das classes e funções necessárias
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+import { openModal, closeModal } from './utils.js';
 
-export const popup = document.querySelector(".popup");
-export const titleHeader = document.querySelector(".header__title");
-export const subtitle = document.querySelector(".header__subtitle");
+// Constantes e variáveis globais
+const editProfileForm = document.querySelector('.popup__form');
+const addCardForm = document.querySelector('.popup__add-card-form');
+const profileName = document.querySelector('.profile__name');
+const profileRole = document.querySelector('.profile__role');
+const editButton = document.querySelector('.profile__edit-button');
+const addCardButton = document.querySelector('.profile__add-card-icon');
+const elementsContainer = document.querySelector('.elements');
 
+// Funções para manipulação de formulários
+const handleSaveProfileInformation = (input1, input2) => {
+    profileName.innerText = input1.value;
+    profileRole.innerText = input2.value;
+    closeModal('.popup');
+}
 
-export const inputName = document.querySelector(".popup__input-name");
-export const inputWork = document.querySelector(".popup__input-work");
+// Instância da classe FormValidator para validação do formulário de edição do perfil
+const editProfileFormValidator = new FormValidator({
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__save-button',
+    inactiveButtonClass: 'popup__save-button_disabled',
+    inputErrorClass: 'popup__input-error',
+    errorClass: 'popup__input-error_active'
+}, editProfileForm);
+editProfileFormValidator.enableValidation();
 
+// Instância da classe FormValidator para validação do formulário de adição de cartão
+const addCardFormValidator = new FormValidator({
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__create-button',
+    inactiveButtonClass: 'popup__create-button_disabled',
+    inputErrorClass: 'popup__input-error',
+    errorClass: 'popup__input-error_active'
+}, addCardForm);
+addCardFormValidator.enableValidation();
 
-export const originalTwoTitle = popup.querySelector(".popup__title").textContent;
-export const twoTitle = popup.querySelector(".popup__title");
-
-export let isEditMode = false;
-
-export  const modal = document.querySelector(".modal");
-export  const modalImg = document.querySelector(".modal__content");
-export  const images = document.querySelectorAll('.main__images');
-export  const span = document.querySelector(".modal__close");
-
-export  const buttonAdd = document.querySelector(".header__container-button");
-export  const edit = document.querySelector(".header__icono");
-export  const hidden = document.querySelector(".popup__close");
-export  const saveInfo = document.querySelector(".popup__button-container");
-
-
-export const mainContainer = document.querySelector('.main__container');
-export const cardTemplate = '.template-card';
-  
-
-
-  function open() {
-    isEditMode = true;
-    popup.classList.toggle("popup_show");
-    const titleCapture = titleHeader.textContent;
-    inputName.value = titleCapture;
-            
-    const subtitleCapture = subtitle.textContent;
-    inputWork.value = subtitleCapture;
-    twoTitle.textContent = originalTwoTitle;
-
-    if (!isEditMode) {
-      inputWork.removeAttribute('pattern');
-    }
-  }
-        
-  function closee() {
-    popup.classList.remove("popup_show");
-    inputWork.removeAttribute('pattern'); 
-  }
-
-        
-  function save(){
-    if(isEditMode) {
-      const nameCapture = inputName.value
-      titleHeader.textContent = nameCapture         
-      const workCapture = inputWork.value
-      subtitle.textContent = workCapture
-
-    } else {
-      inputWork.removeAttribute('pattern');   
-      const newCard = new Card(inputName.value,inputWork.value, cardTemplate);
-      mainContainer.prepend(newCard.generateCard());
-    }
-            
-    popup.classList.remove("popup_show"); 
-  }
-        
-  function addCard() {
-    isEditMode = false;
-    popup.classList.toggle("popup_show");
-            
-    inputName.value = "";
-    twoTitle.textContent = "New Place";
-    inputWork.value = "";
-    inputWork.setAttribute("pattern", "https?://.+");
-    inputName.placeholder = "Title";
-    inputWork.placeholder = "Image URL";
-    inputName.setAttribute('maxlength', '30');
-    inputWork.removeAttribute("minlength");
-    inputWork.removeAttribute("maxlength");
-  }
-
-
-  function handleKeyPress(event) {
-    if (event.key === 'Enter' && popup.classList.contains("popup_show") && areInputsValid()) {
-      save();
-    }
-  }
-
-  function areInputsValid() {
-    return isValidInput(inputName) && isValidInput(inputWork);
-  }
-
-  function isValidInput(input) {
-    return input.validity.valid;
-  }
-
-     
-        
-  function closeModal() { 
-    modal.classList.remove("modal_show");
-  }
-        
-
-
-  const popupOverlay =document.querySelector(".popup__overlay")
-  let popupShowParent;
-  
-   function closeWindows() {
-    popupOverlay.addEventListener('click', function(event) {
-      if (event.target === popupOverlay) {
-        popupShowParent = popupOverlay.closest('.popup_show');
-        popupShowParent.classList.remove('popup_show');
-      }
-    });
-    
-    modal.addEventListener('click', function(event) {
-      if (event.target === modal) {
-        modal.classList.remove('modal_show');
-      }
-    });  
-  }
-  
-
-
-    export {open, closee , save, handleKeyPress, addCard,closeModal,closeWindows}
-
-const initialCards = [
-  {
-    name: "Vale de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    name: "Montanhas Carecas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    name: "Parque Nacional da Vanoise ",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-];
-
-initialCards.forEach(cardData => {
-  const newCard = new Card(cardData.name, cardData.link, cardTemplate);
-  mainContainer.appendChild(newCard.generateCard());
+// Event listener para abrir o modal de edição do perfil
+editButton.addEventListener('click', () => {
+    openModal('.popup');
 });
 
- const formValidator = new FormValidator({
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button-container",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__error",
-  errorClass: "popup__error_visible"
-}, document.querySelector(".popup__form"));
+// Event listener para fechar o modal de edição do perfil
+document.querySelector('.popup__close-button_edit').addEventListener('click', () => {
+    closeModal('.popup');
+});
 
-formValidator.enableValidation();
+// Event listener para abrir o modal de adição de cartão
+addCardButton.addEventListener('click', () => {
+    openModal('.popup-add-card');
+});
+
+// Event listener para fechar o modal de adição de cartão
+document.querySelector('.popup-add-card__close-button').addEventListener('click', () => {
+    closeModal('.popup-add-card');
+});
+
+// Inserir as imagens na página
+const initialCards = [
+    {
+        name: "Vale de Yosemite",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
+    },
+    {
+        name: "Lago Louise",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
+    },
+    {
+        name: "Montanhas Carecas",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
+    },
+    {
+        name: "Latemar",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
+    },
+    {
+        name: "Parque Nacional da Vanoise ",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
+    },
+    {
+        name: "Lago di Braies",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
+    },
+];
+
+// Função para criar e renderizar um novo cartão
+const createAndRenderCard = (cardData) => {
+    const newCard = new Card(cardData, '#template').generateCard();
+    elementsContainer.prepend(newCard);
+}
+
+// Adicionar cada cartão inicial à página
+initialCards.forEach(cardData => {
+    createAndRenderCard(cardData);
+});
