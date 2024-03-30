@@ -1,53 +1,47 @@
-// Definição da classe Card
-export class Card {
-    constructor(data, templateSelector) {
-        // Inicialização dos atributos da classe
-        this._text = data.name;
-        this._imageLink = data.link;
-        this._templateSelector = templateSelector;
+class Card {
+    constructor(cardData, templateSelector) {
+      this._cardData = cardData;
+      this._template = document.querySelector(templateSelector);
     }
-
-    // Método privado para obter o template HTML do cartão
-    _getTemplate() {
-        const cardElement = document
-            .querySelector(this._templateSelector)
-            .content
-            .querySelector('.elements__card')
-            .cloneNode(true);
-
-        return cardElement;
+  
+    #_getTemplateContent() {
+      return this._template.content.querySelector('.elements__card').cloneNode(true);
     }
-
-    // Método privado para configurar os ouvintes de eventos do cartão
-    _setEventListeners(cardElement) {
-        cardElement.querySelector('.elements__delete-icon').addEventListener('click', () => {
-            this._handleDeleteButtonClick(cardElement);
-        });
-
-        cardElement.querySelector('.elements__like-icon').addEventListener('click', () => {
-            this._handleLikeButtonClick(cardElement);
-        });
+  
+    #_addName(cardElement) {
+      cardElement.querySelector('.elements__card-name').textContent = this._cardData.name;
     }
-
-    // Método privado para lidar com o clique no ícone de exclusão
-    _handleDeleteButtonClick(cardElement) {
-        cardElement.remove();
+  
+    #_addImage(cardElement) {
+      const image = cardElement.querySelector('.elements__card-image');
+      image.setAttribute('src', this._cardData.link);
+      image.setAttribute('alt', this._cardData.name);
     }
-
-    // Método privado para lidar com o clique no ícone de curtir
-    _handleLikeButtonClick(cardElement) {
-        cardElement.querySelector('.elements__like-icon').classList.toggle('elements__like-icon_active');
+  
+    #_addLikeToggle(cardElement) {
+      const likeIcon = cardElement.querySelector('.elements__like-icon');
+      likeIcon.addEventListener('click', () => {
+        likeIcon.src = likeIcon.src === './images/like-button.png' ? './images/like-button-clicked.png' : './images/like-button.png';
+      });
     }
-
-    // Método público para gerar um novo cartão
-    generateCard() {
-        this._element = this._getTemplate();
-        this._setEventListeners(this._element);
-
-        this._element.querySelector('.elements__card-name').textContent = this._text;
-        this._element.querySelector('.elements__card-image').src = this._imageLink;
-        this._element.querySelector('.elements__card-image').alt = this._text;
-
-        return this._element;
+  
+    #_addDeleteFunctionality(cardElement) {
+      const deleteIcon = cardElement.querySelector('.elements__delete-icon');
+      deleteIcon.addEventListener('click', () => {
+        const elements = document.querySelector('.elements');
+        elements.removeChild(cardElement);
+      });
     }
-}
+  
+    renderCard() {
+      const cardElement = this.#_getTemplateContent();
+      this.#_addName(cardElement);
+      this.#_addImage(cardElement);
+      this.#_addLikeToggle(cardElement);
+      this.#_addDeleteFunctionality(cardElement);
+      return cardElement;
+    }
+  }
+  
+  export default Card;
+  
