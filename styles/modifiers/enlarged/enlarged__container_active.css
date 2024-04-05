@@ -1,0 +1,11 @@
+/** @format */
+
+.enlarged__container_active {
+  opacity: 1;
+  position: absolute;
+  z-index: 3;
+  top: 4%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}

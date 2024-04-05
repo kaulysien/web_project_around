@@ -1,0 +1,13 @@
+/** @format */
+
+.form-places__submit {
+  margin-top: 15px;
+  border: 0;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+}
+
+.form-places__submit:hover {
+  background-color: #545454;
+}
