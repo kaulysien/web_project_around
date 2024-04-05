@@ -13,154 +13,130 @@
   <title>Around The U.S.</title>
 </head>
 <body>
-  <div class="page">
-    <header class="header">
+  <div class="overlay">
+    <section class="header">
       <img
-        class="header__logo"
-        src="./images/logo-around-the-us.svg"
-        alt="Logo Around the U.S"
+        src="./styles/assets/logo__header-aroundUs.png"
+        class="header__logo-img"
+        alt="Logo"
       />
-    </header>
-    <main>
-      <section class="profile">
-        <img
-          class="profile__image"
-          src="./images/profile-pic.jpg"
-          alt="Imagem de homem idoso com gorro vermelho e camisa de botão"
-        />
-        <div class="profile__wrapper-texts">
-          <div class="profile__wrapper-name-and-edit-button">
-            <h1 class="profile__name">Jacques Cousteau</h1>
-            <button class="profile__edit-button">
+    </section>
+    <section class="profile">
+      <img
+        src="./styles/assets/Avatar.png"
+        alt="Profile picture"
+        class="profile__image"
+      />
+      <div class="profile__content">
+        <h1 class="profile__name" id="profileName">Jacques Cousteau</h1>
+        <h3 class="profile__subtitle" id="profileSubtitle">Explorador</h3>
+        <div class="profile__square"></div>
+      </div>
+      <div class="profile__rectangle"></div>
+    </section>
+    <section class="places">
+      <div class="places__grid">
+        <template id="card-template">
+          <div class="places__container">
+            <img
+              class="places__image"
+              src="./styles/assets/add-button.png"
+              alt="any"
+            />
+            <div class="places__container_name">
+              <h1 class="places__title"></h1>
               <img
-                class="profile__edit-icon"
-                src="./images/edit-icon.svg"
-                alt="Icone de edição"
+                class="places__like-button"
+                src="./styles/assets/like_button.svg"
               />
-            </button>
-          </div>
-          <p class="profile__role">Explorador</p>
-        </div>
-        <button class="profile__add-card-button" style="cursor: pointer;">
-          <img
-            class="profile__add-card-icon"
-            src="./images/add-card-icon.svg"
-            alt="Add card button"
-          />
-        </button>
-      </section>
-      <div class="elements">
-        <template id="template">
-          <div class="elements__card">
-            <button type="button" class="elements__delete-button">
-              <img
-                class="elements__delete-icon"
-                src="./images/trash.png"
-                alt="delete button icon"
-              />
-            </button>
-            <img class="elements__card-image" src="#" alt="Elemento com imagem do cartão" />
-            <div class="elements__wrapper-text-and-like-button">
-              <p class="elements__card-name"></p>
-              <button type="button" class="elements__like-button">
-                <img
-                  class="elements__like-icon"
-                  src="./images/like-button.png"
-                  alt="like button icon"
-                />
-              </button>
             </div>
+            <div class="places__delete-image"></div>
           </div>
         </template>
       </div>
-    </main>
+    </section>
     <footer class="footer">
-      <p class="footer__copyright">© 2024 Around The U.S.</p>
+      <p class="footer__content">© 2023 Around The U.S.</p>
     </footer>
-    <div class="popup">
-      <div class="popup__container">
-        <img
-          class="popup__close-button"
-          src="./images/close-icon.png"
-          alt="Botão de fechar o popup"
-        />
-        <h2 class="popup__title">Editar perfil</h2>
-        <form class="popup__form">
-          <input
-            id="input-name"
-            class="popup__input"
-            type="text"
-            placeholder="Nome"
-            value="Jacques Cousteau"
-          />
-          <span id="input-name-error" class="popup__form-error"></span>
-          <input
-            id="input-role"
-            class="popup__input"
-            type="text"
-            placeholder="sobre-mim"
-            value="Explorador"
-          />
-          <span id="input-role-error" class="popup__form-error"></span>
-          <button id="save-button" class="popup__save-button" type="submit">
-            Salvar
-          </button>
-        </form>
-      </div>
-    </div>
-    <div class="popup popup-add-card">
-      <div class="popup__container">
-        <img
-          class="popup__close-button popup-add-card__close-button"
-          src="./images/close-icon.png"
-          alt="Botão de fechar o popup"
-        />
-        <h2 class="popup__title">Novo local</h2>
-        <form class="popup__form popup__add-card-form">
-          <input
-            id="input-location-name"
-            class="popup__input"
-            type="text"
-            placeholder="Titulo"
-          />
-          <span
-            id="input-location-name-error"
-            class="popup__form-error"
-          ></span>
-          <input
-            id="input-image"
-            class="popup__input"
-            type="text"
-            placeholder="Link da imagem"
-          />
-          <span id="input-image-error" class="popup__form-error"></span>
-          <button
-            id="create-button"
-            class="popup__save-button popup-add-card__create-button"
-            type="submit"
-          >
-            Criar
-          </button>
-        </form>
-      </div>
-    </div>
-    <div class="popup popup-view-image">
-      <div class="popup__container popup-view-image__image-container">
-        <img
-          class="popup__close-button popup-view-image__close-button"
-          src="./images/close-icon.png"
-          alt="Botão de fechar o popup"
-        />
-        <div class="popup-view-image__image-container">
-          <img class="popup-view-image__render-image" src="#" alt="Popup para visualizar a imagem" />
-          <span class="popup-view-image__image-title"></span>
-        </div>
-      </div>
-    </div>
   </div>
-  <script src="./scripts/index.js" type="module"></script>
-  <script src="./scripts/Card.js" type="module"></script>
-  <script src="./scripts/FormValidator.js" type="module"></script>
-  <script src="./scripts/utils.js" type="module"></script>
+  <section class="form">
+    <img
+      src="./styles/assets/Close Icon.png"
+      class="form__close-button"
+      id="formCloseButton"
+      alt="botao fechar"
+    />
+
+    <div class="form__container">
+      <h1 class="form__title">Editar Perfil</h1>
+      <form id="form">
+        <input
+          type="text"
+          value="Jacques Cousteau"
+          class="form__input form__input_name"
+          name="inputName"
+          id="inputName"
+        />
+        <div class="form__message" id="inputName_message"></div>
+        <input
+          type="text"
+          value="Explorador"
+          class="form__input form__input_subtitle"
+          name="inputSubtitle"
+          id="inputSubtitle"
+        />
+        <div class="form__message" id="inputSubtitle_message"></div>
+        <input
+          type="submit"
+          value="Salvar"
+          class="form__input form__input_submit form__input_submit_disabled"
+        />
+      </form>
+    </div>
+  </section>
+  <section class="form-places">
+    <img src="./styles/assets/Close Icon.png" class="form-places__close" />
+    <div class="form-places__container">
+      <h1 class="form-places__title">New Place</h1>
+      <form id="form-places">
+        <input
+          type="text"
+          class="form-places__input form-places__input_title"
+          placeholder="Title"
+          name="inputPlace"
+        />
+        <div class="form-places__message" id="inputPlace_message"></div>
+        <input
+          type="text"
+          class="form-places__input form-places__input_url"
+          placeholder="Image Url"
+          name="inputUrl"
+        />
+        <div class="form-places__message" id="inputUrl_message"></div>
+        <input
+          type="submit"
+          value="Salvar"
+          class="form-places__input form-places__submit form-places__submit_disabled"
+        />
+      </form>
+    </div>
+  </section>
+  <section class="enlarged">
+    <div class="enlarged__image-container">
+      <img
+        class="enlarged__image"
+        id="enlarged__image"
+        alt="Enlarged Image"
+      />
+    </div>
+    <img
+      id="enlarged__close-button"
+      class="enlarged__close-button"
+      src="./styles/assets/Close Icon.png"
+      alt="botao fechar"
+    />
+  </section>
+  <script type="module" src="./scripts/FormValidator.js"></script>
+  <script type="module" src="scripts/script.js"></script>
 </body>
 </html>
