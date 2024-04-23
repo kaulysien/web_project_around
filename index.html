@@ -1,142 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Kauane Ferreira" />
-  <meta name="description" content="Around the world project" />
-  <meta
-    name="keywords"
-    content="united states, nature, nature, travel, social media"
-  />
-  <link rel="stylesheet" href="pages/index.css" />
-  <title>Around The U.S.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kauane Ferreira">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>EUA Afora</title>
 </head>
 <body>
-  <div class="overlay">
-    <section class="header">
-      <img
-        src="./styles/assets/logo__header-aroundUs.png"
-        class="header__logo-img"
-        alt="Logo"
-      />
-    </section>
-    <section class="profile">
-      <img
-        src="./styles/assets/Avatar.png"
-        alt="Profile picture"
-        class="profile__image"
-      />
-      <div class="profile__content">
-        <h1 class="profile__name" id="profileName">Jacques Cousteau</h1>
-        <h3 class="profile__subtitle" id="profileSubtitle">Explorador</h3>
-        <div class="profile__square"></div>
-      </div>
-      <div class="profile__rectangle"></div>
-    </section>
-    <section class="places">
-      <div class="places__grid">
-        <template id="card-template">
-          <div class="places__container">
-            <img
-              class="places__image"
-              src="./styles/assets/add-button.png"
-              alt="any"
-            />
-            <div class="places__container_name">
-              <h1 class="places__title"></h1>
-              <img
-                class="places__like-button"
-                src="./styles/assets/like_button.svg"
-              />
+    <div class="page">
+        <header class="header">
+            <div class="header__logo">
+                <img src="./images/logo.svg" alt="Logo Around US" class="header__logo-image">
             </div>
-            <div class="places__delete-image"></div>
-          </div>
-        </template>
-      </div>
-    </section>
-    <footer class="footer">
-      <p class="footer__content">© 2023 Around The U.S.</p>
-    </footer>
-  </div>
-  <section class="form">
-    <img
-      src="./styles/assets/Close Icon.png"
-      class="form__close-button"
-      id="formCloseButton"
-      alt="botao fechar"
-    />
+        </header>
+        <main class="main">
+          <section class="profile">
+            <img src="./images/image.jpg" alt="Foto Profile" class="profile__image">
+              <div class="profile__info">
+                <h4 class="profile__info-name">Jacques Cousteau</h4>
+                <button class="profile__info-button">
+                  <img src="./images/vector.svg" alt="Button Image" class="profile__info-button-image">
+                </button>
+                <p class="profile__info-text">Explorador</p>
 
-    <div class="form__container">
-      <h1 class="form__title">Editar Perfil</h1>
-      <form id="form">
-        <input
-          type="text"
-          value="Jacques Cousteau"
-          class="form__input form__input_name"
-          name="inputName"
-          id="inputName"
-        />
-        <div class="form__message" id="inputName_message"></div>
-        <input
-          type="text"
-          value="Explorador"
-          class="form__input form__input_subtitle"
-          name="inputSubtitle"
-          id="inputSubtitle"
-        />
-        <div class="form__message" id="inputSubtitle_message"></div>
-        <input
-          type="submit"
-          value="Salvar"
-          class="form__input form__input_submit form__input_submit_disabled"
-        />
-      </form>
+                <div class="popup form popup-opened">
+                  <div class="popup__container">
+                    <button class="popup__close"><img src="./images/close.svg" alt="icone de fechar" class="popup__close-img"></button>
+                    <h2 class="form__title">Editar Perfil</h2>
+                    <form class="form__fieldset" novalidate>
+                      <input type="text" class="form__input-name" placeholder="Nome" value="Jacques Cousteau" minlength="2" maxlength="40" required>
+                      <p class="form__input-name-error"></p>
+                      <input type="text" class="form__input-job" placeholder="Sobre mim" value="Explorador" minlength="2" maxlength="200" required>
+                      <p class="form__input-job-error"></p>
+                      <input type="submit" value="Salvar" class="form__submit">
+                    </form>
+                  </div>
+                </div>
+            </div>
+            <button class="profile__button">
+              <img src="./images/vectoradd.svg" alt="Button Add Image" class="profile__button-add">
+            </button>
+
+              <div class="overlay overlay-open">
+                <div class="popupcard formcard">
+                  <button class="overlay__close"><img src="./images/close.svg" alt="icone de fechar" class="overlay__close-img"></button>
+                  <h2 class="formcard-title">Novo Local</h2>
+                    <form class="formcard__fieldset" novalidate>
+                      <input type="text" class="formcard__input-title" placeholder="Titulo" value="" minlength="2" maxlength="30" required>
+                      <p class="formcard__input-title-error"></p>
+                      <input id="link-image" type="url" class="formcard__input-link" placeholder="Link da imagem" value="" required>
+                      <p class="formcard__input-link-error"></p>
+                      <input type="submit" value="Criar" class="formcard__submit">
+                    </form>
+                </div>
+              </div>
+
+          </section>
+          <div class="elements">
+            <template id="template">
+              <div class="elements__card">
+                <button type="button" class="elements__delete-button">
+                  <img
+                    class="elements__delete-icon"
+                    src="./images/Trash.svg"
+                    alt="delete button icon"
+                  />
+                </button>
+                <img class="elements__card-image" src="#" alt="" />
+                <div class="elements__wrapper-text-and-like-button">
+                  <p class="elements__card-name"></p>
+                  <button type="button" class="elements__like-button">
+                    <img
+                      class="elements__like-icon"
+                      src="./images/heart.svg"
+                      alt="like button icon"
+                    />
+                  </button>
+                </div>
+              </div>
+            </template>
+          </div>
+          <div class="zoom zoom-open">
+            <div class="zoom__popup">
+            <button class="zoom__close"><img src="./images/close.svg" alt="icone de fechar" class="zoom__close-img"></button>
+            <img src="#" alt="#" class="zoom__popup-image">
+            <p class="zoom__popup-text"></p>
+            </div>
+        </div>
+        </main>
+        <footer class="footer">&copy;2024 Around The U.S.</footer>
     </div>
-  </section>
-  <section class="form-places">
-    <img src="./styles/assets/Close Icon.png" class="form-places__close" />
-    <div class="form-places__container">
-      <h1 class="form-places__title">New Place</h1>
-      <form id="form-places">
-        <input
-          type="text"
-          class="form-places__input form-places__input_title"
-          placeholder="Title"
-          name="inputPlace"
-        />
-        <div class="form-places__message" id="inputPlace_message"></div>
-        <input
-          type="text"
-          class="form-places__input form-places__input_url"
-          placeholder="Image Url"
-          name="inputUrl"
-        />
-        <div class="form-places__message" id="inputUrl_message"></div>
-        <input
-          type="submit"
-          value="Salvar"
-          class="form-places__input form-places__submit form-places__submit_disabled"
-        />
-      </form>
-    </div>
-  </section>
-  <section class="enlarged">
-    <div class="enlarged__image-container">
-      <img
-        class="enlarged__image"
-        id="enlarged__image"
-        alt="Enlarged Image"
-      />
-    </div>
-    <img
-      id="enlarged__close-button"
-      class="enlarged__close-button"
-      src="./styles/assets/Close Icon.png"
-      alt="botao fechar"
-    />
-  </section>
-  <script type="module" src="./scripts/FormValidator.js"></script>
-  <script type="module" src="scripts/script.js"></script>
+    <script type="module" src="./script/index.js"></script>
+    <script type="module" src="./script/card.js"></script>
+    <script type="module" src="./script/FormValidator.js"></script>
+    <script type="module" src="./script/utils.js"></script>
 </body>
 </html>

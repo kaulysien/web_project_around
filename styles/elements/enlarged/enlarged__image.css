@@ -1,9 +1,0 @@
-/** @format */
-
-.enlarged__image {
-  max-width: 410px;
-  max-height: 1000px;
-  position: absolute;
-  opacity: 0;
-  display: none;
-}
