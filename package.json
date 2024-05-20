@@ -1,20 +1,13 @@
 {
-  "name": "web_project_4_ptbr-main",
-  "version": "1.0.0",
-  "description": "Este projeto foi elaborado pela [TripleTen](https://tripleten.com/pt-bra/?from=us), testando meus conhecimentos adquiridos neste período do curso.",
-  "main": "./src/pages/index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --mode production",
-    "dev": "webpack serve",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development --open"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "core-js": "^3.31.1",
-    "jquery": "^3.7.0"
-  },
+  "name": "web_project_around",
+  "description": "## Task Stack",
+  "version": "1.0.0",
+  "main": "babel.config.js",
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.24.5",
     "@babel/preset-env": "^7.24.5",
@@ -23,9 +16,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.11.0",
     "css-minimizer-webpack-plugin": "^7.0.0",
-    "cssnano": "^6.0.1",
     "file-loader": "^6.2.0",
-    "gh-pages": "^6.0.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
     "postcss-loader": "^7.3.4",
@@ -39,6 +30,8 @@
     "url": "git+https://github.com/kaulysien/web_project_around.git"
   },
   "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/kaulysien/web_project_around/issues"
   },
