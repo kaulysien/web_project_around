@@ -1,7 +1,7 @@
 {
   "name": "web_project_4_ptbr-main",
   "version": "1.0.0",
-  "description": "Este projeto foi elaborado pela [Practicum](https://practicum.com/pt-bra/), testando meus conhecimentos adquiridos neste período do curso.",
+  "description": "Este projeto foi elaborado pela [TripleTen](https://tripleten.com/pt-bra/?from=us), testando meus conhecimentos adquiridos neste período do curso.",
   "main": "./src/pages/index.js",
   "scripts": {
     "build": "rm -rf dist && webpack --mode production",
