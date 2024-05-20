@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Around The U.S.</title>
+</head>
+
+<body class="page">
+  <!-- header -->
+  <header class="header">
+    <img class="header__logo" src="<%=require('./images/Vector_Around.png')%>" alt="logo do site">
+    <div class="header__line"></div>
+  </header>
+  <main class="content">
+    <!-- profile com identificação do usuário -->
+    <section class="profile">
+      <button class="profile__button-edit-image"><img class="profile__image"
+          src="<%= require('./images/profile_image.png')%>" alt="imagem de perfil do usuário"></button>
+      <div class="profile__info">
+        <p class="profile__info-name" id="profileName">Jacques Cousteau</p>
+        <button class="profile__button-info" type="button"><img src="<%= require('./images/vectoredition.png')%>"
+            alt="botão para alterar perfil"></button>
+        <p class="profile__info-discription">Explorar</p>
+      </div>
+      <button class="profile__button-include" type="button"><img src="<%= require('./images/vectoradd.png')%>"
+          alt="botão para adicionar nava imagem"></button>
+
+      <!-- popup alterar foto de perfil -->
+      <form class="photograph" name="photograph" novalidate>
+        <div class="photograph__popup">
+          <h2 class="photograph__popup-title">Alterar a foto do perfil</h2>
+          <input class="photograph__input-link input" type="url" name="urlPhoto" placeholder="URL da imagem" required>
+          <span class="span span_urlPhoto-message"></span>
+          <button name="button" class="photograph__button-save photograph__button-save_disabled" type="submit"
+            disabled="true">
+            <span class="loading-button-text">Salvar</span>
+            <span class="loading-container">
+              <span class="loading-text">Salvando...</span>
+              <span class="loading-animation"></span>
+            </span>
+          </button>
+          <button class="photograph__button-close-popup button-close-popup"></button>
+        </div>
+      </form>
+
+      <!-- popup confirmação exclusão cartão -->
+      <form class="delete" name="delete" novalidate>
+        <div class="delete__popup">
+          <h2 class="delete__popup-title">Tem certeza?</h2>
+          <button name="button" class="delete__button-save" id="delete-button" type="submit">
+            <span class="loading-button-text">Sim</span>
+            <span class="loading-container">
+              <span class="loading-text">Salvando...</span>
+              <span class="loading-animation"></span>
+            </span>
+          </button>
+          <button class="delete__button-close-popup button-close-popup"></button>
+        </div>
+      </form>
+
+      <!-- popup de edição perfil -->
+      <form class="edit" id="edit" name="edit" novalidate>
+        <div class="edit__popup">
+          <h2 class="edit__popup-title">Editar perfil</h2>
+          <input minlength="2" maxlength="40" class="edit__input-name edit__input-name:focus" type="text" name="name"
+            placeholder="Nome" required>
+          <span class="span span_name-message"></span>
+          <input minlength="2" maxlength="200" class="edit__input-about" type="text" name="about"
+            placeholder="Sobre mim" required>
+          <span class="span span_about-message"></span>
+          <button name="button" class="edit__button-save" type="submit">
+            <span class="loading-button-text">Salvar</span>
+            <span class="loading-container">
+              <span class="loading-text">Salvando...</span>
+              <span class="loading-animation"></span>
+            </span>
+          </button>
+          <button id="edit-close-button" class="edit__button-close-popup button-close-popup"></button>
+        </div>
+      </form>
+      <!-- popup imagem na tela -->
+      <div class="screen">
+        <div class="screen__image-popup">
+          <button id="screen-close-button" class="screen__button-close-popup button-close-popup">
+          </button>
+          <img class="screen__image-dynamics"
+            src="https://images.unsplash.com/photo-1565108150023-cc0fd1054149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+            alt="Imagem em tela cheia">
+          <h3 class="screen__popup-title">Yellostone National Park</h3>
+        </div>
+      </div>
+      <!-- popup adicionar cards -->
+      <form class="include" id="include" name="include" novalidate>
+        <div class="include__popup">
+          <h2 class="include__popup-title">Novo local</h2>
+          <input minlength="2" maxlength="30" class="include__input-title input" type="text" name="title"
+            placeholder="Título" required>
+          <span class="span span_title-message"></span>
+          <input class="include__input-link input" type="url" name="url" placeholder="URL da imagem" required>
+          <span class="span span_url-message"></span>
+          <button name="button" class="include__button-save include__button-save_disabled" type="submit" disabled>
+            <span class="loading-button-text">Criar</span>
+            <span class="loading-container">
+              <span class="loading-text">Salvando...</span>
+              <span class="loading-animation"></span>
+            </span>
+          </button>
+          <button id="include-close-button" class="include__button-close-popup button-close-popup"></button>
+        </div>
+      </form>
+    </section>
+    <ul class="gallery"></ul>
+  </main>
+  <!-- footer -->
+  <footer class="footer">
+    <h2 class="footer__copyrigth">© 2023 Around The U.S.</h2>
+  </footer>
+  <!-- elemento tamplate para adicionar os cards -->
+  <template id="gallery__card">
+    <li class="place" id="000">
+      <img class="place__image"
+        src="https://images.unsplash.com/photo-1565108150023-cc0fd1054149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+        alt="Yellostone National Park">
+      <button class="place__button-delete"><img src="<%= require('./images/image_delete.png')%>"
+          alt="botão para excluir postagem"></button>
+      <div class="place__data">
+        <h3 class="place__title"></h3>
+        <div class="place__like">
+          <button class="place__button-like"><img src="<%= require('./images/button_Like_Desable.png')%>"
+              alt="botão para curtir postagem"></button>
+          <p class="place__like-number">0</p>
+        </div>
+      </div>
+    </li>
+  </template>
+</body>
+
+</html>
