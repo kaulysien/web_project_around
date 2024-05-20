@@ -11,8 +11,11 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    contentBase: './dist',
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
     open: true,
+    hot: true,
   },
   module: {
     rules: [
