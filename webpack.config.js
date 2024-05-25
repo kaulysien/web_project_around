@@ -8,13 +8,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
+    publicPath: '/', // Adicionando publicPath
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         loader: "babel-loader",
-        exclude: /node_modules/, // Removi as barras para corrigir o erro
+        exclude: /node_modules/,
       },
       {
         test: /\.(png|svg|jpg|gif|woff2|woff)$/,
@@ -46,6 +47,6 @@ module.exports = {
     new MiniCssExtractPlugin(),
   ],
   stats: {
-    children: true, // Adicionado para ver detalhes das compilações filhas
+    children: true,
   },
 };
