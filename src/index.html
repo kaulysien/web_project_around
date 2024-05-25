@@ -4,18 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around the US</title>
-    <meta
-      name="description"
-      content="Kauane Ferreira's Project for Portfolio at TripleTen"
-    />
+    <meta name="description" content="Kauane Ferreira's Project for Portfolio at TripleTen" />
     <meta name="keywords" content="html, css, javascript, react" />
     <meta name="author" content="Kauane Ferreira" />
   </head>
   <body class="root">
     <header class="header">
-      <a href="#"
-        ><img class="header__logo" src="./images/logo.svg" alt="logo"
-      /></a>
+      <a href="#">
+        <img class="header__logo" src="./images/logo.svg" alt="logo" />
+      </a>
     </header>
     <main class="content">
       <section class="profile">
@@ -46,12 +43,7 @@
 
     <!-- Edit profile -->
     <section class="form form__edit-profile">
-      <form
-        class="form__container"
-        name="form__edit-profile"
-        action="#"
-        novalidate
-      >
+      <form class="form__container" name="form__edit-profile" action="#" novalidate>
         <button class="form__reset-button" type="reset" aria-label="Close button"></button>
         <h2 class="form__header">Edit profile</h2>
         <fieldset class="form__fields">
@@ -138,25 +130,24 @@
       </div>
     </div>
 
-     <!-- Delete card -->
-  <div class="form form--delete-image">
-    <form class="form__container" name="delete-image" novalidate>
-      <button class="form__reset-button" type="reset" aria-label="Close button"></button>
-      <h2 class="form__header">Are you sure?</h2>
-      <fieldset class="form__fields form__fields-delete">
-        <button class="form__submit-button" type="submit" value="Yes" aria-label="Yes button">Yes</button>
-      </fieldset>
-    </form>
-  </div>
+    <!-- Delete card -->
+    <div class="form form--delete-image">
+      <form class="form__container" name="delete-image" novalidate>
+        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
+        <h2 class="form__header">Are you sure?</h2>
+        <fieldset class="form__fields form__fields-delete">
+          <button class="form__submit-button" type="submit" value="Yes" aria-label="Yes button">Yes</button>
+        </fieldset>
+      </form>
+    </div>
   
-  <!-- Change profile picture -->
-  <div class="form form--change-image">
-    <form class="form__container" name="change-image" novalidate>
-      <button class="form__reset-button" type="reset" aria-label="Close button"></button>
-      <h2 class="form__header">Change profile picture</h2>
-      <fieldset class="form__fields">
-
-        <label for="linkImage-input">
+    <!-- Change profile picture -->
+    <div class="form form--change-image">
+      <form class="form__container" name="change-image" novalidate>
+        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
+        <h2 class="form__header">Change profile picture</h2>
+        <fieldset class="form__fields">
+          <label for="linkImage-input">
             <input
               type="url"
               class="form__input form__image-link"
@@ -168,12 +159,12 @@
             />
             <span class="form__input-error" id="linkImage-input-error"></span>
           </label>
-        <button class="form__submit-button" type="submit" value="Save" aria-label="Save button">
+          <button class="form__submit-button" type="submit" value="Save" aria-label="Save button">
             Save
           </button>
-      </fieldset>
-    </form>
-  </div>
+        </fieldset>
+      </form>
+    </div>
 
     <!-- Template cards -->
     <template class="card-template">
@@ -185,10 +176,11 @@
             <h2 class="card__title"></h2>
             <div class="card__like-container">
               <button type="button" class="card__like-button" aria-label="Like button"></button>
-            <p class="card__like-counter"></p>
+              <p class="card__like-counter"></p>
             </div>
           </div>
         </div>
       </li>
     </template>
+  </body>
 </html>
