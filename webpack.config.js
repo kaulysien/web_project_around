@@ -3,8 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
+  mode: 'production', // Definindo o modo para 'production'
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
@@ -41,7 +43,11 @@ module.exports = {
     ],
   },
   optimization: {
-    minimizer: [`...`, new CssMinimizerPlugin()],
+    minimize: true, // Habilitando a minificação
+    minimizer: [
+      new TerserPlugin(), // Minimizador de JavaScript
+      new CssMinimizerPlugin(), // Minimizador de CSS
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
