@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
+  mode: 'development', // ou 'production', dependendo do seu ambiente
   entry: { main: "./src/pages/index.js" },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -44,4 +45,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
   ],
+  stats: {
+    children: true, // Adicionado para ver detalhes das compilações filhas
+  },
 };
