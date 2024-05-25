@@ -61,6 +61,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      inject: 'body', // Aqui estamos injetando os scripts no body do HTML
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
