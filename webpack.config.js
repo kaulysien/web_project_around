@@ -6,14 +6,16 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  mode: 'development', // Alterando o modo para 'development'
+  mode: 'development',
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    static: './dist', // Substituindo 'contentBase' por 'static'
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
     open: true,
   },
   module: {
@@ -34,11 +36,17 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
-        use: ['file-loader'],
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name].[hash][ext][query]',
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader'],
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name].[hash][ext][query]',
+        },
       },
     ],
   },
