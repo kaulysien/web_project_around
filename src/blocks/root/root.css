@@ -1,27 +1,44 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  max-width: 1280px;
-  width: 100%;
-  min-height: 100vh;
-  font-family: "Inter", sans-serif;
+.root {
   background-color: #000000;
-  margin: auto;
+  color: #ffffff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  max-width: 1200px;
+  margin: 45px 199px 0 199px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  align-self: center;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+@media screen and (min-width: 1281px) {
+  .root {
+    align-items: center;
+    margin: 45px auto 0 auto;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .root {
+    margin: 45px auto 0 auto;
+  }
 }
 
-@media screen and ( max-width: 768px) {
-  body {
-    max-width: 733px;
-    }
+@media screen and (max-width: 930px) {
+  .root {
+    margin: 45px 19px 0 19px;
+  }
 }
 
-
-@media screen and ( max-width: 588px) {
-  body {
-    max-width: 578px;
-    }
+@media screen and (max-width: 767px) {
+  .root {
+    margin: 28px 20px 0 20px;
+  }
 }

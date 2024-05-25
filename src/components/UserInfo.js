@@ -1,65 +1,35 @@
-import Popup from "./Popup.js";
+import { profileName, profileJob, profilePicture } from "../utils/constants.js";
 
-import { getDescriptionPerfil } from "../pages/index.js";
+export default class UserInfo {
+    constructor({ userName, userJob, userAvatar, userId }) {
+        this._userName = userName;
+        this._userJob = userJob;
+        this._userAvatar = userAvatar;
+        this._userId = userId;
+    }
+    // Returns object with user info
+    getUserInfo() {
+        return {
+          userName: this._userName,
+          userJob: this._userJob,
+          userAvatar: this._userAvatar,
+          userId: this._userId,
+        };
+    }
 
-import {
-  inputName,
-  infoName,
-  inputAbout,
-  infoAbout,
-  openPopupEditButton,
-  buttonSave,
-} from "../utils/constants.js";
+    // Take new user data to add it to page
+    setUserInfo() {
+        profileName.textContent = this._userName;
+        profileJob.textContent = this._userJob;
+        profilePicture.src = this._userAvatar;
+    }    
 
-export default class UserInfo extends Popup {
-  constructor(popupSelector) {
-    super(popupSelector);
-    this.setEventListeners();
+    updateUserInfo(data) {
+        this._userName = data.name;
+        this._userJob = data.job;
   }
 
-  getUserInfo() {
-    const userName = document.querySelector(".edit__input-name").value;
-    const userWork = document.querySelector(".edit__input-about").value;
-    return { newName: userName, newWork: userWork };
-  }
-
-  setUserInfo() {
-    const { newName, newWork } = this.getUserInfo();
-    infoName.textContent = newName;
-    infoAbout.textContent = newWork;
-  }
-
-  open() {
-    super.open();
-    inputName.value = infoName.textContent;
-    inputAbout.value = infoAbout.textContent;
-  }
-
-  close(evt) {
-    super.close(evt);
-  }
-
-  _handleEscClose(evt) {
-    super._handleEscClose(evt);
-  }
-
-  renderLoading(isLoading) {
-    super.renderLoading(isLoading);
-  }
-
-  setEventListeners() {
-    super.setEventListeners();
-    openPopupEditButton.addEventListener("click", () => {
-      this.open();
-    });
-    buttonSave.addEventListener("click", (evt) => {
-      evt.preventDefault();
-      setTimeout(() => {
-        this.close(evt);
-      }, 1000);
-      this.getUserInfo();
-      this.setUserInfo();
-      getDescriptionPerfil();
-    });
-  }
+    setUserAvatar(imageLink) {
+        this._userAvatar = imageLink;
+    }
 }

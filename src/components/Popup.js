@@ -1,52 +1,80 @@
+import {EscKey} from "../utils/constants.js";
+
 export default class Popup {
   constructor(popupSelector) {
-    this._popup = popupSelector;
-    this._closePopup = this._popup.querySelector(".button-close-popup");
+    this._popupElement = document.querySelector(popupSelector);
     this._handleEscClose = this._handleEscClose.bind(this);
   }
+  // let buttonClose = this._popupElement.querySelector(".form__reset-button");
+  // removeListener(e) {
+  //   e.target.removeEventListener("keydown", this._handleEscClose);
+  // } 
 
-  open() {
-    this._popup.classList.add("popup_opened");
-    document.addEventListener("keydown", this._handleEscClose);
-  }
-
-  close(evt) {
-    this._popup.classList.add("popup_closing");
-    setTimeout(() => {
-      this._popup.classList.remove("popup_closing");
-      this._popup.classList.remove("popup_opened");
-    }, 200);
-    evt.preventDefault();
-    document.removeEventListener("keydown", this._handleEscClose);
-  }
-
-  _handleEscClose(event) {
-    if (event.key === "Escape") {
-      this.close(event);
-    }
-  }
-
-  renderLoading(isLoading) {
-    const textButton = this._popup.querySelector(".loading-button-text");
-    const loading = this._popup.querySelector(".loading-container");
-    if (isLoading) {
-      textButton.classList.add("loading-closed");
-      loading.classList.add("loading-opened");
-    } else {
-      loading.classList.remove("loading-opened");
-      textButton.classList.remove("loading-closed");
-    }
-  }
-
-  setEventListeners() {
-    this._closePopup.addEventListener("click", (evt) => {
-      this.close(evt);
-    });
-    this._popup.addEventListener("click", (evt) => {
-      const elementStyle = window.getComputedStyle(evt.target);
-      if (elementStyle.backgroundColor === "rgba(0, 0, 0, 0.5)") {
-        this.close(evt);
+  // Close the popup by pressing the Esc key
+  _handleEscClose() {
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" ||
+        (e.keyCode === EscKey &&
+        this._formElement.classList.contains(
+          `${this._popupSelector}_visible`
+        ))
+      ) {
+        this.close();
+        e.target.removeEventListener("keydown", this._handleEscClose); 
       }
     });
+  }
+
+  //  Close the popup using the mouse
+  setEventListeners() {
+    this._popupElement
+    .querySelector(".form__reset-button")
+    .addEventListener("click", () => {
+      this.close(); 
+    });
+    // Close the form when clicking outside the form
+    this._popupElement.addEventListener("click", (e) => {
+      if (e.target.classList.contains("form")) {
+        this._handleEscClose(e.key);
+        this.close(e.target);
+        e.target.removeEventListener("keydown", this._handleEscClose);
+        }
+      });
+  }
+
+  // //  Close the popup using the mouse
+  // setEventListeners() {
+  //   this._popupElement
+  //     .querySelector(".form__reset-button")
+  //     .addEventListener("click", () => {
+  //       //e.preventDefault();
+  //       this.close();
+  //       // this._handleEscClose();
+  //       // e.stopPropagation();
+  //     });
+  // // Close the form when clicking outside the form
+  // this._popupElement.addEventListener("click", (e) => {
+  //   if (e.target.classList.contains("form")) {
+  //     // e.preventDefault();
+  //     this._handleEscClose(e.key);
+  //     this.close(e.target);
+  //     }
+  //   });
+  // }
+
+  
+  // Open the popup
+  open(e) {
+    this._popupElement.classList.add("form_visible");
+    document.addEventListener("keydown", (e) => {
+      this._handleEscClose(e.key);
+    });
+    // e.target.removeEventListener("keydown", this._handleEscClose);
+  }
+
+  //Close the popup
+  close() {
+    this._popupElement.classList.remove("form_visible");
   }
 }

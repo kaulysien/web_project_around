@@ -1,143 +1,195 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around the US</title>
+    <meta
+      name="description"
+      content="Kauane Ferreira's Project for Portfolio at TripleTen"
+    />
+    <meta name="keywords" content="html, css, javascript, react" />
+    <meta name="author" content="Kauane Ferreira" />
+  </head>
+  <body class="root">
+    <header class="header">
+      <a href="#"
+        ><img class="header__logo" src="./images/logo.svg" alt="logo"
+      /></a>
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__container">
+          <div class="profile__image-container">
+            <div class="profile__image-edit"></div>
+            <img class="profile__image" src="#" alt="profile-picture" />
+          </div>
+          <div class="profile__info">
+            <div class="profile__text">
+              <h1 class="profile__title">Jacques Cousteau</h1>
+              <p class="profile__subtitle">Explorer</p>
+            </div>
+            <button class="button profile__edit-button" aria-label="Edit button"></button>
+          </div>
+        </div>
+        <button class="button profile__add-button" aria-label="Add button"></button>
+      </section>
+      <section class="cards">
+        <ul class="cards__grid">
+          <!-- Template cards -->
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2024 Around The U.S.</p>
+    </footer>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Project</title>
-</head>
-<body>
-  <h1>Hello, Webpack!</h1>
-</body>
-</html>
-<body class="page">
-  <!-- header -->
-  <header class="header">
-    <img class="header__logo" src="<%=require('./images/Vector_Around.png')%>" alt="logo do site">
-    <div class="header__line"></div>
-  </header>
-  <main class="content">
-    <!-- profile com identificação do usuário -->
-    <section class="profile">
-      <button class="profile__button-edit-image"><img class="profile__image"
-          src="<%= require('./images/profile_image.png')%>" alt="imagem de perfil do usuário"></button>
-      <div class="profile__info">
-        <p class="profile__info-name" id="profileName">Jacques Cousteau</p>
-        <button class="profile__button-info" type="button"><img src="<%= require('./images/vectoredition.png')%>"
-            alt="botão para alterar perfil"></button>
-        <p class="profile__info-discription">Explorar</p>
-      </div>
-      <button class="profile__button-include" type="button"><img src="<%= require('./images/vectoradd.png')%>"
-          alt="botão para adicionar nava imagem"></button>
-
-      <!-- popup alterar foto de perfil -->
-      <form class="photograph" name="photograph" novalidate>
-        <div class="photograph__popup">
-          <h2 class="photograph__popup-title">Alterar a foto do perfil</h2>
-          <input class="photograph__input-link input" type="url" name="urlPhoto" placeholder="URL da imagem" required>
-          <span class="span span_urlPhoto-message"></span>
-          <button name="button" class="photograph__button-save photograph__button-save_disabled" type="submit"
-            disabled="true">
-            <span class="loading-button-text">Salvar</span>
-            <span class="loading-container">
-              <span class="loading-text">Salvando...</span>
-              <span class="loading-animation"></span>
-            </span>
+    <!-- Edit profile -->
+    <section class="form form__edit-profile">
+      <form
+        class="form__container"
+        name="form__edit-profile"
+        action="#"
+        novalidate
+      >
+        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
+        <h2 class="form__header">Edit profile</h2>
+        <fieldset class="form__fields">
+          <label for="name-input">
+            <input
+              type="text"
+              class="form__input form__title"
+              id="name-input"
+              name="name"
+              placeholder="Name"
+              value="Jacques Cousteau"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="form__input-error" id="name-input-error"></span>
+          </label>
+          <label for="job-input">
+            <input
+              type="text"
+              class="form__input form__subtitle"
+              id="job-input"
+              name="job"
+              placeholder="Job"
+              value="Explorer"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span class="form__input-error" id="job-input-error"></span>
+          </label>
+          <button class="form__submit-button" type="submit" value="Save" aria-label="Save button">
+            Save
           </button>
-          <button class="photograph__button-close-popup button-close-popup"></button>
-        </div>
-      </form>
-
-      <!-- popup confirmação exclusão cartão -->
-      <form class="delete" name="delete" novalidate>
-        <div class="delete__popup">
-          <h2 class="delete__popup-title">Tem certeza?</h2>
-          <button name="button" class="delete__button-save" id="delete-button" type="submit">
-            <span class="loading-button-text">Sim</span>
-            <span class="loading-container">
-              <span class="loading-text">Salvando...</span>
-              <span class="loading-animation"></span>
-            </span>
-          </button>
-          <button class="delete__button-close-popup button-close-popup"></button>
-        </div>
-      </form>
-
-      <!-- popup de edição perfil -->
-      <form class="edit" id="edit" name="edit" novalidate>
-        <div class="edit__popup">
-          <h2 class="edit__popup-title">Editar perfil</h2>
-          <input minlength="2" maxlength="40" class="edit__input-name edit__input-name:focus" type="text" name="name"
-            placeholder="Nome" required>
-          <span class="span span_name-message"></span>
-          <input minlength="2" maxlength="200" class="edit__input-about" type="text" name="about"
-            placeholder="Sobre mim" required>
-          <span class="span span_about-message"></span>
-          <button name="button" class="edit__button-save" type="submit">
-            <span class="loading-button-text">Salvar</span>
-            <span class="loading-container">
-              <span class="loading-text">Salvando...</span>
-              <span class="loading-animation"></span>
-            </span>
-          </button>
-          <button id="edit-close-button" class="edit__button-close-popup button-close-popup"></button>
-        </div>
-      </form>
-      <!-- popup imagem na tela -->
-      <div class="screen">
-        <div class="screen__image-popup">
-          <button id="screen-close-button" class="screen__button-close-popup button-close-popup">
-          </button>
-          <img class="screen__image-dynamics"
-            src="https://images.unsplash.com/photo-1565108150023-cc0fd1054149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
-            alt="Imagem em tela cheia">
-          <h3 class="screen__popup-title">Yellostone National Park</h3>
-        </div>
-      </div>
-      <!-- popup adicionar cards -->
-      <form class="include" id="include" name="include" novalidate>
-        <div class="include__popup">
-          <h2 class="include__popup-title">Novo local</h2>
-          <input minlength="2" maxlength="30" class="include__input-title input" type="text" name="title"
-            placeholder="Título" required>
-          <span class="span span_title-message"></span>
-          <input class="include__input-link input" type="url" name="url" placeholder="URL da imagem" required>
-          <span class="span span_url-message"></span>
-          <button name="button" class="include__button-save include__button-save_disabled" type="submit" disabled>
-            <span class="loading-button-text">Criar</span>
-            <span class="loading-container">
-              <span class="loading-text">Salvando...</span>
-              <span class="loading-animation"></span>
-            </span>
-          </button>
-          <button id="include-close-button" class="include__button-close-popup button-close-popup"></button>
-        </div>
+        </fieldset>
       </form>
     </section>
-    <ul class="gallery"></ul>
-  </main>
-  <!-- footer -->
-  <footer class="footer">
-    <h2 class="footer__copyrigth">© 2024 Around The U.S.</h2>
-  </footer>
-  <!-- elemento tamplate para adicionar os cards -->
-  <template id="gallery__card">
-    <li class="place" id="000">
-      <img class="place__image"
-        src="https://images.unsplash.com/photo-1565108150023-cc0fd1054149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
-        alt="Yellostone National Park">
-      <button class="place__button-delete"><img src="<%= require('./images/image_delete.png')%>"
-          alt="botão para excluir postagem"></button>
-      <div class="place__data">
-        <h3 class="place__title"></h3>
-        <div class="place__like">
-          <button class="place__button-like"><img src="<%= require('./images/button_Like_Desable.png')%>"
-              alt="botão para curtir postagem"></button>
-          <p class="place__like-number">0</p>
-        </div>
-      </div>
-    </li>
-  </template>
-</body>
 
+    <!-- Add new place -->
+    <section class="form form__add-card">
+      <form class="form__container" name="form__add-card" action="#" novalidate>
+        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
+        <h2 class="form__header">New Place</h2>
+        <fieldset class="form__fields">
+          <label for="card-input">
+            <input
+              type="text"
+              class="form__input form__card-title"
+              id="card-input"
+              name="title"
+              placeholder="Title"
+              value=""
+              minlength="1"
+              maxlength="30"
+              required
+            />
+            <span class="form__input-error" id="card-input-error"></span>
+          </label>
+          <label for="link-input">
+            <input
+              type="url"
+              class="form__input form__image-link"
+              id="link-input"
+              name="link"
+              placeholder="Image link"
+              value=""
+              required
+            />
+            <span class="form__input-error" id="link-input-error"></span>
+          </label>
+          <button class="form__submit-button" type="submit" value="Create" aria-label="Create button">
+            Create
+          </button>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- Open image -->
+    <div class="form form__add-image">
+      <div class="form__open-image">
+        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
+        <img src="#" alt="" class="form__image" />
+        <p class="form__image-title"></p>
+      </div>
+    </div>
+
+     <!-- Delete card -->
+  <div class="form form--delete-image">
+    <form class="form__container" name="delete-image" novalidate>
+      <button class="form__reset-button" type="reset" aria-label="Close button"></button>
+      <h2 class="form__header">Are you sure?</h2>
+      <fieldset class="form__fields form__fields-delete">
+        <button class="form__submit-button" type="submit" value="Yes" aria-label="Yes button">Yes</button>
+      </fieldset>
+    </form>
+  </div>
+  
+  <!-- Change profile picture -->
+  <div class="form form--change-image">
+    <form class="form__container" name="change-image" novalidate>
+      <button class="form__reset-button" type="reset" aria-label="Close button"></button>
+      <h2 class="form__header">Change profile picture</h2>
+      <fieldset class="form__fields">
+
+        <label for="linkImage-input">
+            <input
+              type="url"
+              class="form__input form__image-link"
+              id="linkImage-input"
+              name="imageLink"
+              placeholder="Image link"
+              value=""
+              required
+            />
+            <span class="form__input-error" id="linkImage-input-error"></span>
+          </label>
+        <button class="form__submit-button" type="submit" value="Save" aria-label="Save button">
+            Save
+          </button>
+      </fieldset>
+    </form>
+  </div>
+
+    <!-- Template cards -->
+    <template class="card-template">
+      <li class="card">
+        <div class="card__container">
+          <button type="button" class="card__delete-button" aria-label="Delete button"></button>
+          <div class="card__image"></div>
+          <div class="card__text">
+            <h2 class="card__title"></h2>
+            <div class="card__like-container">
+              <button type="button" class="card__like-button" aria-label="Like button"></button>
+            <p class="card__like-counter"></p>
+            </div>
+          </div>
+        </div>
+      </li>
+    </template>
+  </body>
 </html>

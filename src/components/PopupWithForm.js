@@ -1,50 +1,67 @@
-import { updateLikeData, updatePageData } from "../pages/index.js";
 import Popup from "./Popup.js";
-import { buttonSaveNewCard, openPopupButtonCard } from "../utils/constants.js";
 
-export default class PopupWhithForm extends Popup {
-  constructor(submitCallback, popupSelector) {
+export default class PopupWithForm extends Popup {
+  constructor({ popupSelector, handleFormSubmit }) {
     super(popupSelector);
-    this._submitCallback = submitCallback;
-    this._getInputValues = this._getInputValues.bind(this);
-    this._container = document.querySelector(".gallery");
-    this.setEventListeners();
+    this._handleFormSubmit = handleFormSubmit;
+    this._formElement = this._popupElement.querySelector(".form__container");
+    this._buttonValue = this._popupElement.querySelector('.form__submit-button').value;
+    this._inputList = this._popupElement.querySelectorAll(".form__input");
+    [this._name, this._job] = this._inputList;
   }
 
+  // Collect data from all the input fields
   _getInputValues() {
-    const inputs = this._popup.querySelectorAll(".input");
-    const values = {};
-    inputs.forEach((input) => {
-      values[input.name] = input.value;
-    });
-    return values;
+    this._formValues = {};
+    this._inputList.forEach((inputElement) => this._formValues[inputElement.name] = inputElement.value);
+    return this._formValues;
   }
 
-  open() {
+  // Add click event listener to the close button and add submit event handler
+  setEventListeners(){
+    super.setEventListeners();
+    this._popupElement.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.renderLoading(true);
+      this._handleFormSubmit(
+        this._getInputValues(),
+        this._listItem,
+        this._cardId
+      );
+      this.close();
+    });
+  }
+
+  // Reset the form when the popup is closed
+  close() {
+    super.close();
+    this._formElement.reset();
+  }
+  
+  open(data) {
+    if (data) {
+      this._name.value = data.name;
+      this._job.value = data.job;
+    }
     super.open();
-    buttonSaveNewCard.setAttribute("disabled", true);
-    buttonSaveNewCard.classList.add("include__button-save_disabled");
-    this._popup.reset();
   }
 
   renderLoading(isLoading) {
-    super.renderLoading(isLoading);
+    if(isLoading) {
+      this._popupElement.querySelector(
+        ".form__submit-button").value =
+        "Saving...";
+    }
+    else {
+      this._popupElement.querySelector(
+        ".form__submit-button"
+      ).value = this._buttonValue;
+    }
   }
 
-  setEventListeners() {
-    super.setEventListeners();
-    openPopupButtonCard.addEventListener("click", () => {
-      this.open();
-    });
-    buttonSaveNewCard.addEventListener("click", (evt) => {
-      evt.preventDefault();
-      setTimeout(updatePageData, 700);
-      setTimeout(updateLikeData, 710);
-      const formData = this._getInputValues();
-      this._submitCallback(formData);
-      setTimeout(() => {
-        this.close(evt);
-      }, 1000);
-    });
+  // Handle Form Submit for modal
+  setSubmitAction (action) {
+    this._handleFormSubmit = action;
   }
+
 }

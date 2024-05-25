@@ -1,23 +1,21 @@
 export default class Section {
-  constructor({ items, render }, cardTemplate) {
-    this._items = items;
-    this._render = render;
-    this._container = cardTemplate;
+  constructor({ items, renderer }, containerSelector) {
+    this._renderedItems = items;
+    this._renderer = renderer;
+
+    this._container = document.querySelector(containerSelector);
   }
 
-  addItem(element) {
-    this._container.append(element);
+  addItem(cardItem) {
+    this._container.append(cardItem);
   }
 
-  clear() {
-    this._container.innerHTML = "";
+  // removeItem(cardId) {
+  //   this._container.querySelector(`[data-id='${cardId}']`).remove();
+  // }
+
+  renderItems() {
+    this._renderedItems.forEach((item) => this._renderer(item));
   }
 
-  renderer() {
-    this.clear();
-
-    this._items.forEach((item) => {
-      this._render(item);
-    });
-  }
 }

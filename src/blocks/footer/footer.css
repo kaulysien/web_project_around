@@ -1,24 +1,13 @@
+@import url(./__copyright/footer__copyright.css);
+
 .footer {
-  width: 100%;
-  max-width: 880px;
-  margin: 68px auto 60px auto;
-  padding: 0 10px 0 10px;
-
-  }
-
-  @media screen and ( max-width: 768px) {
+    display: block;
+    max-width: 882px;
+    width: 100%;
+    margin: 66px auto 60px;
+}
+@media screen and (max-width: 375px) {
     .footer {
-      max-width: 733px;
-      padding: 0 10px 0 10px;
-      margin: 55px auto 46px auto;
-      }
-  }
-
-   @media screen and ( max-width: 588px) {
-    .footer {
-      max-width: 282px;
-      max-height: 14px;
-      margin-top: 50px;
       margin-bottom: 36px;
-      }
-  }
+    }
+}
