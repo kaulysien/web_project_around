@@ -6,14 +6,14 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  mode: 'production', // Definindo o modo para 'production'
+  mode: 'development', // Alterando o modo para 'development'
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    contentBase: './dist',
+    static: './dist', // Substituindo 'contentBase' por 'static'
     open: true,
   },
   module: {
@@ -43,10 +43,10 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: true, // Habilitando a minificação
+    minimize: true,
     minimizer: [
-      new TerserPlugin(), // Minimizador de JavaScript
-      new CssMinimizerPlugin(), // Minimizador de CSS
+      new TerserPlugin(),
+      new CssMinimizerPlugin(),
     ],
   },
   plugins: [
