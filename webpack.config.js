@@ -1,4 +1,4 @@
-const path = require("path"); 
+const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -13,7 +13,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: "babel-loader",
-        exclude: "/node_modules/",
+        exclude: /node_modules/, // Removi as barras para corrigir o erro
       },
       {
         test: /\.(png|svg|jpg|gif|woff2|woff)$/,
@@ -25,14 +25,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: [
+        use: [
           MiniCssExtractPlugin.loader,
-          { 
-            loader: "css-loader", 
-          options: { 
-            importLoaders: 1 
-          } 
-        },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+            },
+          },
           "postcss-loader",
         ],
       },
