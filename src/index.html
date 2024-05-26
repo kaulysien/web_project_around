@@ -1,133 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Around the US</title>
-  <meta name="description" content="Kauane Ferreira's Project for Portfolio at TripleTen" />
-  <meta name="keywords" content="html, css, javascript, react" />
-  <meta name="author" content="Kauane Ferreira" />
-</head>
-<body class="root">
-  <header class="header">
-    <a href="#">
-      <img class="header__logo" src="./images/logo.svg" alt="logo" />
-    </a>
-  </header>
-  <main class="content">
-    <section class="profile">
-      <div class="profile__container">
-        <div class="profile__image-container">
-          <div class="profile__image-edit"></div>
-          <img class="profile__image" src="#" alt="profile-picture" />
-        </div>
-        <div class="profile__info">
-          <div class="profile__text">
-            <h1 class="profile__title">Jacques Cousteau</h1>
-            <p class="profile__subtitle">Explorer</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around the US</title>
+    <meta
+      name="description"
+      content="Kauane Ferreira's Project for TripleTen"
+    />
+    <meta name="keywords" content="html, css, javascript, react" />
+    <meta name="author" content="Kauane Ferreira" />
+  </head>
+  <body class="root">
+    <header class="header">
+      <a href="#"
+        ><img class="header__logo" src="./images/logo.svg" alt="logo"
+      /></a>
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__container">
+          <div class="profile__image-container">
+            <div class="profile__image-edit"></div>
+            <img class="profile__image" src="#" alt="profile-picture" />
           </div>
-          <button class="button profile__edit-button" aria-label="Edit button"></button>
+          <div class="profile__info">
+            <div class="profile__text">
+              <h1 class="profile__title">Jacques Cousteau</h1>
+              <p class="profile__subtitle">Explorer</p>
+            </div>
+            <button class="button profile__edit-button" aria-label="Edit button"></button>
+          </div>
         </div>
+        <button class="button profile__add-button" aria-label="Add button"></button>
+      </section>
+      <section class="cards">
+        <ul class="cards__grid">
+          <!-- Template cards -->
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2024 Around The U.S.</p>
+    </footer>
+
+    <!-- Edit profile -->
+    <section class="form form__edit-profile">
+      <form
+        class="form__container"
+        name="form__edit-profile"
+        action="#"
+        novalidate
+      >
+        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
+        <h2 class="form__header">Edit profile</h2>
+        <fieldset class="form__fields">
+          <label for="name-input">
+            <input
+              type="text"
+              class="form__input form__title"
+              id="name-input"
+              name="name"
+              placeholder="Name"
+              value="Jacques Cousteau"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="form__input-error" id="name-input-error"></span>
+          </label>
+          <label for="job-input">
+            <input
+              type="text"
+              class="form__input form__subtitle"
+              id="job-input"
+              name="job"
+              placeholder="Job"
+              value="Explorer"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span class="form__input-error" id="job-input-error"></span>
+          </label>
+          <button class="form__submit-button" type="submit" value="Save" aria-label="Save button">
+            Save
+          </button>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- Add new place -->
+    <section class="form form__add-card">
+      <form class="form__container" name="form__add-card" action="#" novalidate>
+        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
+        <h2 class="form__header">New Place</h2>
+        <fieldset class="form__fields">
+          <label for="card-input">
+            <input
+              type="text"
+              class="form__input form__card-title"
+              id="card-input"
+              name="title"
+              placeholder="Title"
+              value=""
+              minlength="1"
+              maxlength="30"
+              required
+            />
+            <span class="form__input-error" id="card-input-error"></span>
+          </label>
+          <label for="link-input">
+            <input
+              type="url"
+              class="form__input form__image-link"
+              id="link-input"
+              name="link"
+              placeholder="Image link"
+              value=""
+              required
+            />
+            <span class="form__input-error" id="link-input-error"></span>
+          </label>
+          <button class="form__submit-button" type="submit" value="Create" aria-label="Create button">
+            Create
+          </button>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- Open image -->
+    <div class="form form__add-image">
+      <div class="form__open-image">
+        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
+        <img src="#" alt="" class="form__image" />
+        <p class="form__image-title"></p>
       </div>
-      <button class="button profile__add-button" aria-label="Add button"></button>
-    </section>
-    <section class="cards">
-      <ul class="cards__grid">
-        <!-- Template cards -->
-      </ul>
-    </section>
-  </main>
-  <footer class="footer">
-    <p class="footer__copyright">© 2024 Around The U.S.</p>
-  </footer>
-
-  <section class="form__edit-profile">
-    <form class="form__container" name="form__edit-profile" action="#" novalidate>
-      <button class="form__reset-button" type="reset" aria-label="Close button"></button>
-      <h2 class="form__header">Edit profile</h2>
-      <fieldset class="form__fields">
-        <label for="name-input">
-          <input
-            type="text"
-            class="form__input form__title"
-            id="name-input"
-            name="name"
-            placeholder="Name"
-            value="Jacques Cousteau"
-            minlength="2"
-            maxlength="40"
-            required
-          />
-          <span class="form__input-error" id="name-input-error"></span>
-        </label>
-        <label for="job-input">
-          <input
-            type="text"
-            class="form__input form__subtitle"
-            id="job-input"
-            name="job"
-            placeholder="Job"
-            value="Explorer"
-            minlength="2"
-            maxlength="200"
-            required
-          />
-          <span class="form__input-error" id="job-input-error"></span>
-        </label>
-        <button class="form__submit-button" type="submit" value="Save" aria-label="Save button">
-          Save
-        </button>
-      </fieldset>
-    </form>
-  </section>
-
-  <section class="form__add-card">
-    <form class="form__container" name="form__add-card" action="#" novalidate>
-      <button class="form__reset-button" type="reset" aria-label="Close button"></button>
-      <h2 class="form__header">New Place</h2>
-      <fieldset class="form__fields">
-        <label for="card-input">
-          <input
-            type="text"
-            class="form__input form__card-title"
-            id="card-input"
-            name="title"
-            placeholder="Title"
-            value=""
-            minlength="1"
-            maxlength="30"
-            required
-          />
-          <span class="form__input-error" id="card-input-error"></span>
-        </label>
-        <label for="link-input">
-          <input
-            type="url"
-            class="form__input form__image-link"
-            id="link-input"
-            name="link"
-            placeholder="Image link"
-            value=""
-            required
-          />
-          <span class="form__input-error" id="link-input-error"></span>
-        </label>
-        <button class="form__submit-button" type="submit" value="Create" aria-label="Create button">
-          Create
-        </button>
-      </fieldset>
-    </form>
-  </section>
-
-  <section class="form__add-image">
-    <div class="form__open-image">
-      <button class="form__reset-button" type="reset" aria-label="Close button"></button>
-      <img src="#" alt="" class="form__image" />
-      <p class="form__image-title"></p>
     </div>
-  </section>
 
-  <section class="form--delete-image">
+     <!-- Delete card -->
+  <div class="form form--delete-image">
     <form class="form__container" name="delete-image" novalidate>
       <button class="form__reset-button" type="reset" aria-label="Close button"></button>
       <h2 class="form__header">Are you sure?</h2>
@@ -135,46 +147,49 @@
         <button class="form__submit-button" type="submit" value="Yes" aria-label="Yes button">Yes</button>
       </fieldset>
     </form>
-  </section>
-
-  <section class="form--change-image">
+  </div>
+  
+  <!-- Change profile picture -->
+  <div class="form form--change-image">
     <form class="form__container" name="change-image" novalidate>
       <button class="form__reset-button" type="reset" aria-label="Close button"></button>
       <h2 class="form__header">Change profile picture</h2>
       <fieldset class="form__fields">
+
         <label for="linkImage-input">
-          <input
-            type="url"
-            class="form__input form__image-link"
-            id="linkImage-input"
-            name="imageLink"
-            placeholder="Image link"
-            value=""
-            required
-          />
-          <span class="form__input-error" id="linkImage-input-error"></span>
-        </label>
+            <input
+              type="url"
+              class="form__input form__image-link"
+              id="linkImage-input"
+              name="imageLink"
+              placeholder="Image link"
+              value=""
+              required
+            />
+            <span class="form__input-error" id="linkImage-input-error"></span>
+          </label>
         <button class="form__submit-button" type="submit" value="Save" aria-label="Save button">
-          Save
-        </button>
+            Save
+          </button>
       </fieldset>
     </form>
-  </section>
+  </div>
 
-  <template class="card-template">
-    <li class="card">
-      <div class="card__container">
-        <button type="button" class="card__delete-button" aria-label="Delete button"></button>
-        <div class="card__image"></div>
-        <div class="card__text">
-          <h2 class="card__title"></h2>
-          <div class="card__like-container">
-            <button type="button" class="card__like-button" aria-label="Like button"></button>
+    <!-- Template cards -->
+    <template class="card-template">
+      <li class="card">
+        <div class="card__container">
+          <button type="button" class="card__delete-button" aria-label="Delete button"></button>
+          <div class="card__image"></div>
+          <div class="card__text">
+            <h2 class="card__title"></h2>
+            <div class="card__like-container">
+              <button type="button" class="card__like-button" aria-label="Like button"></button>
             <p class="card__like-counter"></p>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-  </template>
-</body>
+      </li>
+    </template>
+  </body>
 </html>
