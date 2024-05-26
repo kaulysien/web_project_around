@@ -1,4 +1,4 @@
-/* @import url(./__image/profile__image.css);
+@import url(./__image/profile__image.css);
 @import url(./__info/profile__info.css);
 @import url(./__title/profile__title.css);
 @import url(./__subtitle/profile__subtitle.css);
@@ -7,7 +7,7 @@
 @import url(./__container/profile__container.css);
 @import url(./__text/profile__text.css);
 @import url(./__image/-container/profile__image-container.css);
-@import url(./__image/-edit/profile__image-edit.css);*/
+@import url(./__image/-edit/profile__image-edit.css);
 
 .profile {
   display: flex;
