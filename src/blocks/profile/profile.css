@@ -12,6 +12,7 @@
 .profile {
   display: flex;
   max-width: 882px;
+  padding-top: 35px; 
   width: 100%;
   margin: auto;
 }
