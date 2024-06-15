@@ -1,43 +1,45 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor({ popupSelector, handleFormSubmit }) {
+  constructor({ popupSelector, submitCallback }) {
     super(popupSelector);
-    this._handleFormSubmit = handleFormSubmit;
-    this._submitButton = this._popupSelector.querySelector(
-      ".popup__submit-button"
+    this._popupElement = document.querySelector(popupSelector);
+    this._submitCallback = submitCallback;
+    this._formElement = this._popupElement.querySelector(".popup__form");
+    this._submitButton = this._popupElement.querySelector(
+      ".popup__button-submit"
     );
   }
+
   _getInputValues() {
-    this._inputList = this._popupSelector.querySelectorAll(".popup__input");
+    const inputs = this._formElement.querySelectorAll(".popup__input-text");
+    const values = {};
 
-    this._formValues = {};
-
-    this._inputList.forEach((input) => {
-      this._formValues[input.name] = input.value;
+    inputs.forEach((input) => {
+      values[input.name] = input.value;
     });
 
-    return this._formValues;
+    return values;
   }
 
-  _renderLoading(isLoading) {
-    if (isLoading) {
-      this._submitButton.textContent = "Salvando...";
-    }
-  }
-
-  close() {
-    super.close();
-    this._popupSelector.querySelector(".popup__form").reset();
+  setInputValues(values) {
+    const inputs = this._formElement.querySelectorAll(".popup__input-text");
+    inputs.forEach((input) => {
+      input.value = values[input.name];
+    });
   }
 
   setEventListeners() {
     super.setEventListeners();
-    this._popupSelector.addEventListener("submit", (evt) => {
+    this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-      this._renderLoading(true);
+      this._submitCallback(this._getInputValues());
       this.close();
     });
+  }
+
+  close() {
+    super.close();
+    this._formElement.reset();
   }
 }

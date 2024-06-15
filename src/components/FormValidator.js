@@ -1,27 +1,33 @@
-import { popup, addCards, avatar } from "./constants";
 export default class FormValidator {
   constructor(config, formElement) {
     this._config = config;
     this._formElement = formElement;
+    this._inputList = Array.from(
+      formElement.querySelectorAll(config.inputSelector)
+    );
+    this._buttonElement = formElement.querySelector(
+      config.submitButtonSelector
+    );
   }
+
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._formElement.querySelector(
-      `.${inputElement.id}-error`
+      `#${inputElement.id} + .${this._config.errorClass}`
     );
     inputElement.classList.add(this._config.inputErrorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(this._config.errorClass);
+    errorElement.classList.add(this._config.errorClassVisible);
   }
 
   _hideInputError(inputElement) {
     const errorElement = this._formElement.querySelector(
-      `.${inputElement.id}-error`
+      `#${inputElement.id} + .${this._config.errorClass}`
     );
-    inputElement.classList.add("text-color");
     inputElement.classList.remove(this._config.inputErrorClass);
-    errorElement.classList.remove(this._config.errorClass);
+    errorElement.classList.remove(this._config.errorClassVisible);
     errorElement.textContent = "";
   }
+
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);
@@ -29,91 +35,37 @@ export default class FormValidator {
       this._hideInputError(inputElement);
     }
   }
-  _hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
+
+  _hasInvalidInput() {
+    return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
-  _toggleButtonState(inputList, buttonElement) {
-    if (this._hasInvalidInput(inputList)) {
-      buttonElement.classList.add(this._config.inactiveButtonClass);
+
+  _toggleButtonState() {
+    if (this._hasInvalidInput()) {
+      this._buttonElement.classList.add(this._config.inactiveButtonClass);
+      this._buttonElement.setAttribute("disabled", true);
     } else {
-      buttonElement.classList.remove(this._config.inactiveButtonClass);
+      this._buttonElement.classList.remove(this._config.inactiveButtonClass);
+      this._buttonElement.removeAttribute("disabled");
     }
   }
 
   _setEventListeners() {
-    const buttonElement = this._formElement.querySelector(
-      this._config.submitButtonSelector
-    );
-    const inputList = Array.from(
-      this._formElement.querySelectorAll(this._config.inputSelector)
-    );
-    this._toggleButtonState(inputList, buttonElement);
-    inputList.forEach((inputElement) => {
+    this._toggleButtonState();
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
+        this._toggleButtonState();
         this._checkInputValidity(inputElement);
-        this._toggleButtonState(inputList, buttonElement);
       });
     });
   }
 
   enableValidation() {
-    const formList = Array.from(
-      document.querySelectorAll(this._config.formSelector)
-    );
-    formList.forEach((formElement) => {
-      formElement.addEventListener("submit", function (evt) {
-        evt.preventDefault();
-      });
-
-      const fieldsetList = Array.from(
-        this._formElement.querySelectorAll(".popup__formset")
-      );
-
-      fieldsetList.forEach((fieldset) => {
-        this._setEventListeners(fieldset);
-      });
+    this._formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
     });
+    this._setEventListeners();
   }
 }
-
-const profileValid = new FormValidator(
-  {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__submit-button",
-    inactiveButtonClass: "popup__button_disabled",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "popup__error_visible",
-  },
-  popup
-);
-
-const addValid = new FormValidator(
-  {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__submit-button",
-    inactiveButtonClass: "popup__button_disabled",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "popup__error_visible",
-  },
-  addCards
-);
-
-const picValid = new FormValidator(
-  {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__submit-button",
-    inactiveButtonClass: "popup__button_disabled",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "popup__error_visible",
-  },
-  avatar
-);
-
-addValid.enableValidation();
-profileValid.enableValidation();
-picValid.enableValidation();

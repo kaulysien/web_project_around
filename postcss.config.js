@@ -1,3 +1,6 @@
+// postcss.config.js
+
+// conecte os plugins ao arquivo
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 
