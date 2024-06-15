@@ -18,9 +18,9 @@ import {
 } from "../components/utils.js";
 
 const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/web-ptbr-cohort-11",
+  baseUrl: "https://around.nomoreparties.co/v1/web-ptbr-cohort-10",
   headers: {
-    authorization: "8eqd6098f-fb36-4fa5-a328-69061e307ca0",
+    authorization: "e00364f1-af4a-4601-a0ac-2228485dc1a7",
     "Content-Type": "application/json",
   },
 });
