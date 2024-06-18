@@ -9,6 +9,7 @@ export default class PopupWithForm extends Popup {
     this._submitButton = this._popupElement.querySelector(
       ".popup__button-submit"
     );
+    this._submitButtonDefaultText = this._submitButton.textContent;
   }
 
   _getInputValues() {
@@ -31,10 +32,17 @@ export default class PopupWithForm extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._formElement.addEventListener("submit", (evt) => {
+    this._formElement.addEventListener("submit", async (evt) => {
       evt.preventDefault();
-      this._submitCallback(this._getInputValues());
-      this.close();
+      this._submitButton.textContent = "Salvando...";
+      try {
+        await this._submitCallback(this._getInputValues());
+        this.close();
+      } catch (error) {
+        console.error("Erro ao salvar:", error);
+      } finally {
+        this._submitButton.textContent = this._submitButtonDefaultText;
+      }
     });
   }
 
