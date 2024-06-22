@@ -1,30 +1,33 @@
 {
-  "name": "web_project_around",
+  "name": "tripleten-around",
   "version": "1.0.0",
-  "description": "A página do Tripleten web_project_around é um projeto no programa de desenvolvedor de software na TripleTen. Ele é criado usando HTML, CSS (avançados) e JavaScript. E estará disponível no GitHub e GitHub Pages.",
-  "main": "babel.config.js",
+  "description": "",
+  "main": "./src/pages/index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack serve"
+    "dev": "webpack serve --mode development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.24.5",
-    "autoprefixer": "^10.4.19",
+    "@babel/preset-env": "^7.24.0",
+    "autoprefixer": "^10.4.18",
     "babel-loader": "^9.1.3",
     "clean-webpack-plugin": "^4.0.0",
-    "css-loader": "^7.1.1",
-    "cssnano": "^7.0.1",
+    "css-loader": "^6.10.0",
+    "cssnano": "^6.1.0",
+    "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.6.0",
-    "mini-css-extract-plugin": "^2.9.0",
+    "mini-css-extract-plugin": "^2.8.1",
     "postcss-loader": "^8.1.1",
-    "webpack": "^5.92.0",
+    "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4"
+    "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
-    "resolve-cwd": "^3.0.0"
+    "core-js": "^3.36.0"
   }
 }

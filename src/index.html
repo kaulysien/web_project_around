@@ -1,216 +1,225 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Kauane Ferreira" />
-    <meta name="description" content="Uma viagem maravilhosa pelo mundo." />
-    <meta
-      name="keywords"
-      content="viajar, mundo, cidades, fotos, likes e paisagens"
-    />
-    <title>Around the US</title>
+
+    <title>TripleTen - Around us</title>
   </head>
   <body>
     <div class="page">
-      <header class="header">
+      <header class="header container">
         <img
-          src="<%=require('./images/vector.png')%>"
-          alt="logo Around the US"
+          src="<%= require('./images/logo-around.svg') %>"
           class="header__logo"
+          alt="Logo do site Around"
         />
       </header>
-      <main class="content">
+      <main class="main container">
         <section class="profile">
-          <div class="profile__info">
-            <button type="button" class="profile__avatar-edit">
-              <img class="profile__image" src="#" alt="Foto do usuário" />
+          <div class="profile__avatar-wrapper">
+            <button class="button profile__btn-avatar-edit">
+              <img
+                src="<%= require('./images/edit-icon.svg') %>"
+                alt="Ícone do botão de editar avatar do perfil"
+              />
             </button>
-            <div class="profile__info-container">
-              <div class="profile__title-container">
-                <h1 class="profile__title"></h1>
-                <button class="profile__title-button" type="button">
-                  <img
-                    src="<%=require('./images/caneta.png')%>"
-                    alt="Botão com uma caneta dentro"
-                    class="profile__info-image"
-                  />
-                </button>
-              </div>
-              <p class="profile__subtitle"></p>
-            </div>
-          </div>
-          <button class="button profile__addbutton" type="button">
             <img
-              src="<%=require('./images/mais.png')%>"
-              alt="Botão com o sinal de mais dentro"
-              class="profile__addbutton-img"
+              src="<%= require('./images/avatar-fallback.png') %>"
+              class="profile__avatar"
+              alt="Imagem de avatar do usuário"
+            />
+          </div>
+          <div class="profile__info">
+            <div class="profile__name-wrapper">
+              <h1 class="profile__name"></h1>
+              <button
+                id="edit-profile"
+                class="button profile__btn-edit popup-trigger"
+              >
+                <img
+                  src="<%= require('./images/edit-icon.svg') %>"
+                  alt="Ícone do botão de editar perfil"
+                />
+              </button>
+            </div>
+            <p class="profile__about"></p>
+          </div>
+          <button id="add-place" class="button profile__btn-add popup-trigger">
+            <img
+              src="<%= require('./images/plus-icon.svg') %>"
+              alt="Ícone do botão de adicionar novos posts"
             />
           </button>
         </section>
 
-        <div class="elements"></div>
-        <template id="template">
-          <div class="elements__card">
-            <button id="button" class="elements__button-trash"></button>
-            <img class="elements__image" src="#" alt="Imagem do local" />
-            <div class="elements__group">
-              <h2 class="elements__title"></h2>
-              <button
-                id="likeButton"
-                class="elements__like-button"
-                type="submit"
-              ></button>
-            </div>
-            <span class="elements__like-count">""</span>
-          </div>
-        </template>
+        <section class="posts">
+          <ul class="posts__list"></ul>
+          <p class="posts__empty-text">Adicione seu primeiro post...</p>
+        </section>
+      </main>
+      <footer class="footer container">
+        <p class="footer__text">© 2024 Around The U.S.</p>
+      </footer>
+    </div>
 
-        <section class="popup">
-          <div class="popup__container">
-            <p class="popup__title">Editar perfil</p>
-            <form class="popup__form" novalidate>
+    <div class="popup popup_closed popup_edit-profile">
+      <div class="popup__container">
+        <button class="button popup__btn-close">
+          <img
+            src="<%= require('./images/close-icon.svg') %>"
+            alt="Ícone do botão de fechar popup"
+            class="popup__close-icon"
+          />
+        </button>
+        <h2 class="popup__title">Editar perfil</h2>
+        <form name="edit-profile" class="popup__form popup__form_edit-profile">
+          <fieldset class="popup__fieldset">
+            <div class="popup__input-control">
               <input
-                class="popup__input-text"
-                id="name-input"
                 type="text"
+                id="name"
                 name="name"
+                class="popup__input popup__input_type_name"
                 placeholder="Nome"
                 minlength="2"
                 maxlength="40"
                 required
               />
               <span class="popup__error"></span>
+            </div>
+            <div class="popup__input-control">
               <input
-                class="popup__input-text"
-                id="about-input"
                 type="text"
+                id="about"
                 name="about"
+                class="popup__input popup__input_type_about"
                 placeholder="Sobre mim"
                 minlength="2"
                 maxlength="200"
                 required
               />
               <span class="popup__error"></span>
-              <button
-                class="popup__input-submit popup__input-disabled"
-                type="submit"
-              >
-                Salvar
-              </button>
-            </form>
-            <button class="button popup__close-button">
-              <img
-                src="<%=require('./images/close-icon.png')%>"
-                alt="Fechar janela editar perfil"
-              />
-            </button>
-          </div>
-        </section>
-
-        <section class="popup popup_card">
-          <div class="popup__container">
-            <p class="popup__title">Novo local</p>
-            <form
-              class="popup__form popup__form-card"
-              name="formcard"
-              novalidate
-            >
+            </div>
+          </fieldset>
+          <button type="submit" class="button popup__btn-submit">Salvar</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_closed popup_edit-avatar">
+      <div class="popup__container">
+        <button class="button popup__btn-close">
+          <img
+            src="<%= require('./images/close-icon.svg') %>"
+            alt="Ícone do botão de fechar popup"
+            class="popup__close-icon"
+          />
+        </button>
+        <h2 class="popup__title">Alterar a foto do perfil</h2>
+        <form name="edit-avatar" class="popup__form popup__form_edit-avatar">
+          <fieldset class="popup__fieldset">
+            <div class="popup__input-control">
               <input
-                class="popup__input-text popup__input-text_title"
-                id="title-input"
+                type="url"
+                id="link"
+                name="link"
+                class="popup__input popup__input_type_link"
+                placeholder="Insira a url da imagem..."
+                minlength="2"
+                required
+              />
+              <span class="popup__error"></span>
+            </div>
+          </fieldset>
+          <button type="submit" class="button popup__btn-submit">Salvar</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_closed popup_confirmation">
+      <div class="popup__container">
+        <button class="button popup__btn-close">
+          <img
+            src="<%= require('./images/close-icon.svg') %>"
+            alt="Ícone do botão de fechar popup"
+            class="popup__close-icon"
+          />
+        </button>
+        <h2 class="popup__title">Tem certeza?</h2>
+        <button type="submit" class="button popup__btn-confirmation">
+          Sim
+        </button>
+      </div>
+    </div>
+    <div class="popup popup_closed popup_add-place">
+      <div class="popup__container">
+        <button class="button popup__btn-close">
+          <img
+            src="<%= require('./images/close-icon.svg') %>"
+            alt="Ícone do botão de fechar popup"
+            class="popup__close-icon"
+          />
+        </button>
+        <h2 class="popup__title">Novo local</h2>
+        <form name="add-place" class="popup__form popup__form_add-place">
+          <fieldset class="popup__fieldset">
+            <div class="popup__input-control">
+              <input
                 type="text"
+                id="title"
                 name="title"
+                class="popup__input popup__input_type_title"
                 placeholder="Título"
                 minlength="2"
                 maxlength="30"
                 required
               />
               <span class="popup__error"></span>
+            </div>
+            <div class="popup__input-control">
               <input
-                class="popup__input-text popup__input-text_url"
-                id="url-input"
                 type="url"
-                name="url"
-                placeholder="Link da imagem"
-                required
-              />
-              <span class="popup__error"></span>
-              <button
-                class="popup__input-submit popup__input-disabled"
-                type="submit"
-                disabled
-              >
-                Criar
-              </button>
-            </form>
-            <button class="popup__close-button popup__close-button_card">
-              <img
-                src="<%=require('./images/close-icon.png')%>"
-                alt="Fechar janela novo local"
-                class="popup__card-image"
-              />
-            </button>
-          </div>
-        </section>
-
-        <section class="popup popup-zoom-image">
-          <div class="popup-zoom-image__container">
-            <img class="popup__image" src="#" alt="Zoom da imagem" />
-            <p class="popup__image-name"></p>
-            <button class="popup__close-button popup__close-button_image">
-              <img
-                src="<%=require('./images/close-icon-s.png')%>"
-                alt="Fechar janela da imagem"
-                class="popup__image-button"
-              />
-            </button>
-          </div>
-        </section>
-
-        <section class="popup popup_edit">
-          <div class="popup__container">
-            <button class="popup__close-button" type="button">
-              <img
-                class="popup__close-icon-img popup__close"
-                src="<%=require('./images/close-icon.png')%>"
-                alt="Fechar popup"
-              />
-            </button>
-            <form class="popup__form popup__form-avatar" novalidate>
-              <h2 class="popup__title">Alterar a foto do perfil</h2>
-              <input
-                class="popup__input-text popup__form-input-link"
-                id="avatar"
-                placeholder="Link da Imagem"
-                type="url"
+                id="image"
                 name="image"
+                class="popup__input popup__input_type_image"
+                placeholder="Link de imagem"
+                minlength="15"
                 required
               />
               <span class="popup__error"></span>
-              <button class="popup__input-submit" type="submit">Salvar</button>
-            </form>
-          </div>
-        </section>
-
-        <section class="popup popup_delete">
-          <div class="popup__container">
-            <button class="popup__close-button" type="button">
-              <img
-                class="popup__close-icon-img"
-                src="<%=require('./images/close-icon.png')%>"
-                alt="Fechar popup"
-              />
-            </button>
-            <h2 class="popup__title">Tem certeza?</h2>
-            <button class="popup__input-submit" type="submit">Sim</button>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer">
-        <p class="footer__paragraph">© 2024 Around The U.S.</p>
-      </footer>
+            </div>
+          </fieldset>
+          <button type="submit" class="button popup__btn-submit">Criar</button>
+        </form>
+      </div>
     </div>
+    <div class="popup popup_closed popup_image">
+      <div class="popup__container popup__container_image">
+        <button class="button popup__btn-close">
+          <img
+            src="<%= require('./images/close-icon.svg') %>"
+            alt="Ícone do botão de fechar popup"
+            class="popup__close-icon"
+          />
+        </button>
+        <img src=" " alt="" class="popup__image" />
+        <p class="popup__image-title"></p>
+      </div>
+    </div>
+
+    <template id="posts__item">
+      <li class="posts__item">
+        <button class="posts__trash-btn posts__trash-btn_hidden"></button>
+        <div class="posts__image-wrapper">
+          <img src=" " class="posts__image" alt="" />
+        </div>
+        <div class="posts__description">
+          <h2 class="posts__title"></h2>
+          <div class="posts__like-group">
+            <button class="button posts__btn-like"></button>
+            <span class="posts__like-number">0</span>
+          </div>
+        </div>
+      </li>
+    </template>
   </body>
 </html>

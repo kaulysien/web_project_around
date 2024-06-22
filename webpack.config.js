@@ -12,6 +12,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
     publicPath: "",
+    clean: true,
   },
   target: ["web", "es5"],
   stats: { children: true },
@@ -20,7 +21,7 @@ module.exports = {
     static: path.resolve(__dirname, "./dist"),
     compress: true,
     port: 8080,
-    open: true,
+    open: false,
   },
   module: {
     rules: [
@@ -48,7 +49,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // caminho para o arquivo index.html
+      template: "./src/index.html",
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),

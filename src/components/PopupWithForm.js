@@ -1,55 +1,62 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor({ popupSelector, submitCallback }) {
+  constructor(
+    popupSelector,
+    { submitForm, triggerSelector, onOpen, onClose, onStart }
+  ) {
     super(popupSelector);
     this._popupElement = document.querySelector(popupSelector);
-    this._submitCallback = submitCallback;
-    this._formElement = this._popupElement.querySelector(".popup__form");
-    this._submitButton = this._popupElement.querySelector(
-      ".popup__button-submit"
-    );
-  }
-
-  _getInputValues() {
-    const inputs = this._formElement.querySelectorAll(".popup__input-text");
-    const values = {};
-
-    inputs.forEach((input) => {
-      values[input.name] = input.value;
-    });
-
-    return values;
-  }
-
-  setInputValues(values) {
-    const inputs = this._formElement.querySelectorAll(".popup__input-text");
-    inputs.forEach((input) => {
-      input.value = values[input.name];
-    });
-  }
-
-  setEventListeners() {
-    super.setEventListeners();
-    this._formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._submitButton.textContent = "Salvando...";
-      const formValues = this._getInputValues();
-      Promise.resolve(this._submitCallback(formValues))
-        .then(() => {
-          this.close();
-        })
-        .catch((error) => {
-          console.error("Erro ao enviar o formulário:", error);
-        })
-        .finally(() => {
-          this._submitButton.textContent = this._submitButtonText;
-        });
-    });
+    this._form = this._popupElement.querySelector(".popup__form");
+    this._submitForm = submitForm;
+    this._triggerElement = document.querySelector(triggerSelector);
+    this._onOpen = onOpen ?? null;
+    this._onClose = onClose ?? null;
+    this._onStart = onStart ?? null;
   }
 
   close() {
     super.close();
-    this._formElement.reset();
+    if (this._onClose) {
+      this._onClose();
+    }
+  }
+
+  open() {
+    super.open();
+    if (this._onOpen) {
+      this._onOpen();
+    }
+  }
+
+  getForm() {
+    return this._form;
+  }
+
+  getPopup() {
+    return this._popupElement;
+  }
+
+  _getInputValues(evt) {
+    const form = evt.target;
+    this._submitForm(form);
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._getInputValues(evt);
+    });
+
+    this._triggerElement.addEventListener("click", () => {
+      this.open();
+    });
+  }
+
+  setPopup() {
+    this.setEventListeners();
+    if (this._onStart) this._onStart();
   }
 }

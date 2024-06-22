@@ -1,18 +1,18 @@
 .header {
-  max-width: 880px;
-  width: 100%;
-  padding: 45px 0;
-  border-bottom: 1px solid #545454;
+  padding-block: 40px;
+  border-bottom: 1px solid hsl(0, 0%, 33%);
+  display: flex;
 }
 
-@media only screen and (max-width: 1000px) {
+.header__logo {
+  width: 173px;
+}
+
+@media screen and (max-width: 640px) {
   .header {
-    width: 85%;
+    padding-block: 28px;
   }
-}
-
-@media only screen and (max-width: 683px) {
-  .header {
-    padding: 32px 0;
+  .header__logo {
+    width: 126px;
   }
 }

@@ -1,24 +1,17 @@
 .footer {
-  max-width: 880px;
-  width: 100%;
-  margin: 0;
-  padding: 0 0 60px 0;
+  padding-block: 60px;
+}
+
+.footer__text {
+  font-size: 18px;
   color: #545454;
 }
 
-.footer__paragraph {
-  margin: 0;
-}
-
-@media only screen and (max-width: 1000px) {
+@media screen and (max-width: 640px) {
   .footer {
-    width: 75%;
+    padding-block: 36px;
   }
-}
-
-@media only screen and (max-width: 683px) {
-  .footer {
-    padding: 0 0 36px 0;
-    width: 85%;
+  .footer__text {
+    font-size: 14px;
   }
 }
